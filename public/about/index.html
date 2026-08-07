@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en-gb" data-theme="light">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Me · latent_shift</title>
+  <meta name="description" content="Engineering notes, experimentation, and useful rabbit holes.">
+  <meta name="theme-color" content="#f5f3ef">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="/svg/octo.svg">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.min.83d2d13512c456db3ccdea0b03c7ff610e65a6328f9f056f6b59caa47647706b.css">
+  <script>
+    (() => {
+      const saved = localStorage.getItem('ledger-theme');
+      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = saved || preferred;
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="ambient-shapes" aria-hidden="true">
+    <span class="ambient-shape ambient-shape--sitar" data-parallax-shape data-speed="0.08" data-rotation="0.035"></span>
+    <span class="ambient-shape ambient-shape--plus" data-parallax-shape data-speed="-0.14"
+      data-rotation="-0.055"></span>
+    <span class="ambient-shape ambient-shape--semi" data-parallax-shape data-speed="0.2" data-rotation="0.08"></span>
+    <span class="ambient-shape ambient-shape--sitar-secondary" data-parallax-shape data-speed="-0.1"
+      data-rotation="0.045"></span>
+    <span class="ambient-shape ambient-shape--plus-secondary" data-parallax-shape data-speed="0.16"
+      data-rotation="-0.065"></span>
+    <span class="ambient-shape ambient-shape--semi-secondary" data-parallax-shape data-speed="-0.22"
+      data-rotation="0.09"></span>
+    <span class="ambient-shape ambient-shape--roto" data-parallax-shape data-speed="0.12" data-rotation="-0.075"></span>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <span class="brand-logo" aria-hidden="true"></span>
+        <span>latent_shift</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/posts/">Blog</a>
+        <a href="/about/">About</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
+            class="theme-icon" aria-hidden="true"><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+</svg>
+</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+</span></span><span data-theme-label>Dark</span></button>
+      </nav>
+      <button class="mobile-theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
+          class="theme-icon" aria-hidden="true"><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+</svg>
+</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+</span></span></button>
+    </div>
+  </header>
+  <main class="container">
+    
+<div class="article-shell about-shell">
+  <article class="post">
+    <header class="post-header">
+      <p class="eyebrow">PROFILE · WORK HISTORY</p>
+      <h1>About Me</h1>
+      <p class="post-description">A record of the teams, products, and companies I&#39;ve worked with.</p>
+      <div class="article-meta">
+        <span>COMPANIES: 27</span>
+        <span>STATUS: <b class="live">ARCHIVED</b></span>
+      </div>
+    </header>
+    <div class="post-content"><h2 id="railpen">Railpen</h2>
+<p><strong>Frontend developer · Oct 2021 - Mar 2026</strong></p>
+<p>SME responsible for all front-office web applications, establishing UI/UX and frontend coding standards through a reusable theme, a shared Angular library, Azure Marketplace and VS Code extensions, and shared linting and formatting configuration.</p>
+<p>Notable projects included an IBOR app with real-time portfolio data and trade-order capabilities, Risk Management, Rebalance, and Data Quality frameworks. I was also involved in company-wide adoption of Microsoft Foundry and AI-powered solutions.</p>
+<h2 id="lexisnexis--eg">LexisNexis / EG</h2>
+<p><strong>Full-stack developer · Jun 2019 - Jul 2021</strong></p>
+<p>Worked on a commercial property valuation UI with rich formatting, document uploads, side-by-side comparisons, commenting, and market-data integration for report generation in Word and PDF. The product helped surveyors automate workflows that previously took months.</p>
+<p>Developed TinyMCE plugins, contributed to the Node/Hapi backend, and built processes around AWS SQS. I was also involved with Auth0 authentication and a custom authorisation suite.</p>
+<h2 id="fidelity-international">Fidelity International</h2>
+<p><strong>Frontend developer · May 2018 - May 2019</strong></p>
+<p>Built a library of reusable, stateless Angular and Ionic components for Fidelity&rsquo;s wider regional team to create highly configurable mobile apps. The NetBenefits mobile app has more than one million downloads on Google Play.</p>
+<h2 id="shell">Shell</h2>
+<p><strong>Frontend developer · Dec 2017 - May 2018</strong></p>
+<p>Developed an Ionic mobile app for smart EV charging at Shell Charge points.</p>
+<h2 id="brilliant-basics">Brilliant Basics</h2>
+<p><strong>Frontend developer · Sep 2017 - Dec 2017</strong></p>
+<p>Worked on a customer-loyalty analytics platform in an agile and TDD environment. The platform provided insight into customer behaviour using large datasets, with the ability to drill down and export subsets.</p>
+<h2 id="keytree">Keytree</h2>
+<p><strong>Frontend developer · Nov 2016 - Sep 2017</strong></p>
+<p>Worked on a number of web and hybrid apps for Keytree&rsquo;s client British Petroleum using Angular and Ionic. These apps were used internally by BP staff.</p>
+<h2 id="square-enix">Square Enix</h2>
+<p><strong>Javascript developer · Sep 2016 - Nov 2016</strong></p>
+<p>Developed eidosmontreal.com.</p>
+<h2 id="classlist">Classlist</h2>
+<p><strong>Frontend developer · Apr 2016 - Sep 2016</strong></p>
+<p>Built a suite of social-network apps powered by Angular and Google Cloud Platform, used by parents and pupils, alongside management dashboards for administrators. The products are now used in hundreds of schools across the UK.</p>
+<h2 id="halo-financial">Halo Financial</h2>
+<p><strong>Frontend developer · Nov 2015 - Apr 2016</strong></p>
+<p>Developed Halo&rsquo;s new customer-onboarding app and a real-time FX platform in Angular.</p>
+<h2 id="brilliant-basics-1">Brilliant Basics</h2>
+<p><strong>Frontend developer · Sep 2015 - Nov 2015</strong></p>
+<p>Built a wealth and asset-management platform proof of concept in Angular and Highcharts, where customers could access their private investments.</p>
+<h2 id="dentsu-aegis-network">Dentsu Aegis Network</h2>
+<p><strong>Frontend developer · May 2015 - Sep 2015</strong></p>
+<p>Developed an Angular dashboard to surface large datasets built for Dentsu&rsquo;s customers.</p>
+<h2 id="square-enix-1">Square Enix</h2>
+<p><strong>Frontend developer · Oct 2014 - May 2015</strong></p>
+<p>Developed an internal Angular-based CMS to manage Square Enix&rsquo;s online store, games, and merchandise in multiple languages.</p>
+<h2 id="black-swan-data">Black Swan Data</h2>
+<p><strong>Frontend developer · Sep 2014 - Oct 2014</strong></p>
+<p>Worked on Black Swan&rsquo;s Angular component library, which exposed Panasonic&rsquo;s in-flight entertainment system APIs to independent UI developers.</p>
+<h2 id="proffer-global">Proffer Global</h2>
+<p><strong>Frontend developer · Jan 2014 - Sep 2014</strong></p>
+<p>Developed a Google Cloud Platform-powered web app in Angular that gave restaurant owners tools to manage their restaurants and real-time bookings on an advanced booking calendar.</p>
+<h2 id="the-hive-group">The Hive Group</h2>
+<p><strong>Frontend developer · Nov 2013 - Dec 2013</strong></p>
+<p>Worked on localisation and customisation of a web and mobile application developed internally by The Hive Group.</p>
+<h2 id="english-first--dma">English First / DMA</h2>
+<p><strong>Frontend developer · Dec 2013</strong></p>
+<p>Completed a two-week assignment fixing cross-browser and responsive-layout bugs on englishfirst.com, built on Adobe CQ5.</p>
+<h2 id="digital-propulsion">Digital Propulsion</h2>
+<p><strong>Director · Sep 2013 - 2020</strong></p>
+<p>Moved from Dubai to set up my own company, where I delivered numerous short- and long-term projects as a contractor until 2020, as well as managed a small development team for one of my customers.</p>
+<h2 id="nabbeshcom">Nabbesh.com</h2>
+<p><strong>Frontend developer · Jan 2013 - Jun 2013</strong></p>
+<p>Worked on a creative portfolio platform similar to Behance with jQuery. Built features such as contracts and project management with milestones, alongside job posting and transactions.</p>
+<h2 id="bayzatcom">Bayzat.com</h2>
+<p><strong>Frontend developer · Sep 2012 - Aug 2013</strong></p>
+<p>Designed and built the frontend for Bayzat.com, a Dubai-based startup focused on comparison tools for financial products and insurance.</p>
+<h2 id="al-wasatt-networks">Al Wasatt Networks</h2>
+<p><strong>Frontend developer · Jan 2012 - Oct 2012</strong></p>
+<p>Was responsible for the frontend of alwasatt.com, a regional business-networking platform similar to LinkedIn. The frontend was built on top of Symfony and PHP.</p>
+<h2 id="dubai-silicon-oasis-fze">Dubai Silicon Oasis FZE</h2>
+<p><strong>Frontend developer · Apr 2010 - Jan 2012</strong></p>
+<p>Designed and developed the corporate website <a href="https://www.dso.ae">www.dso.ae</a> for DSOA. Also implemented on-site SEO, moving the website to the first page of Google search results.</p>
+<h2 id="itp-digital-publishing">ITP Digital Publishing</h2>
+<p><strong>Frontend developer · Sep 2008 - Apr 2010</strong></p>
+<p>Developed microsites and high-traffic portals such as Time Out Dubai, Arabian Business, Ahlan, and Masala.</p>
+<h2 id="webishi">Webishi</h2>
+<p><strong>Co-founder / game developer · Mar 2008 - Sep 2008</strong></p>
+<p>Launched a startup focused on building Flash-based multiplayer games for multinational clients such as Foster&rsquo;s and British American Tobacco.</p>
+<h2 id="forward-technologies-inc">Forward Technologies Inc.</h2>
+<p><strong>Frontend developer · Jun 2006 - Dec 2007</strong></p>
+<p>Worked as a remote contract frontend developer for FTI&rsquo;s clients, including New York-based RichFX, Register.com, and Nashville-based Zoitec. Focused on JavaScript and Flash.</p>
+<h2 id="mana-digital">Mana Digital</h2>
+<p><strong>Flash / Actionscript developer · Jan 2004 - Jun 2004</strong></p>
+<p>Developed award-winning full-Flash websites using ActionScript 2.0.</p>
+<h2 id="marjinal-porter-novelli">Marjinal Porter Novelli</h2>
+<p><strong>Frontend developer · Apr 2002 - Jan 2004</strong></p>
+<p>Worked on web and Flash development for HP, Microsoft, Kodak, and BSA.</p>
+<h2 id="turknet">Turk.net</h2>
+<p><strong>Frontend developer · Sep 1999 - Mar 2002</strong></p>
+<p>Worked on frontend development for internal ticketing and ERP applications with JavaScript and .NET.</p>
+</div>
+  </article>
+  <aside class="article-sidebar">
+    <div class="toc">
+      <p class="eyebrow">IN THIS ARTICLE</p><nav id="TableOfContents">
+  <ul>
+    <li><a href="#railpen">Railpen</a></li>
+    <li><a href="#lexisnexis--eg">LexisNexis / EG</a></li>
+    <li><a href="#fidelity-international">Fidelity International</a></li>
+    <li><a href="#shell">Shell</a></li>
+    <li><a href="#brilliant-basics">Brilliant Basics</a></li>
+    <li><a href="#keytree">Keytree</a></li>
+    <li><a href="#square-enix">Square Enix</a></li>
+    <li><a href="#classlist">Classlist</a></li>
+    <li><a href="#halo-financial">Halo Financial</a></li>
+    <li><a href="#brilliant-basics-1">Brilliant Basics</a></li>
+    <li><a href="#dentsu-aegis-network">Dentsu Aegis Network</a></li>
+    <li><a href="#square-enix-1">Square Enix</a></li>
+    <li><a href="#black-swan-data">Black Swan Data</a></li>
+    <li><a href="#proffer-global">Proffer Global</a></li>
+    <li><a href="#the-hive-group">The Hive Group</a></li>
+    <li><a href="#english-first--dma">English First / DMA</a></li>
+    <li><a href="#digital-propulsion">Digital Propulsion</a></li>
+    <li><a href="#nabbeshcom">Nabbesh.com</a></li>
+    <li><a href="#bayzatcom">Bayzat.com</a></li>
+    <li><a href="#al-wasatt-networks">Al Wasatt Networks</a></li>
+    <li><a href="#dubai-silicon-oasis-fze">Dubai Silicon Oasis FZE</a></li>
+    <li><a href="#itp-digital-publishing">ITP Digital Publishing</a></li>
+    <li><a href="#webishi">Webishi</a></li>
+    <li><a href="#forward-technologies-inc">Forward Technologies Inc.</a></li>
+    <li><a href="#mana-digital">Mana Digital</a></li>
+    <li><a href="#marjinal-porter-novelli">Marjinal Porter Novelli</a></li>
+    <li><a href="#turknet">Turk.net</a></li>
+  </ul>
+</nav>
+    </div>
+  </aside>
+</div>
+
+  </main>
+  <footer class="container site-footer">
+    <div><strong>latent_shift</strong>
+      <p>Engineering notes, experimentation, and useful rabbit holes.</p>
+    </div>
+    <div class="footer-links">Gokhan Demirtas <span>© 2026</span></div>
+  </footer>
+  <script>
+    const parallaxShapes = document.querySelectorAll("[data-parallax-shape]");
+    let parallaxFramePending = false;
+
+    const updateParallax = () => {
+      const scrollY = window.scrollY;
+      document.documentElement.style.setProperty("--background-scroll-y", `${scrollY * 0.16}px`);
+      parallaxShapes.forEach((shape) => {
+        const speed = Number(shape.dataset.speed);
+        const rotation = Number(shape.dataset.rotation);
+        shape.style.transform = `translate3d(0, ${scrollY * speed}px, 0) rotate(${scrollY * rotation}deg)`;
+      });
+      parallaxFramePending = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!parallaxFramePending) {
+        window.requestAnimationFrame(updateParallax);
+        parallaxFramePending = true;
+      }
+    }, { passive: true });
+
+    updateParallax();
+
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      button.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem("ledger-theme", next);
+        document.querySelectorAll("[data-theme-label]").forEach((label) => label.textContent = next === "dark" ? "Lite" : "Dark");
+      });
+    });
+  </script>
+</body>
+
+</html>

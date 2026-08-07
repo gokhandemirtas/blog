@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-gb" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome · Technical Ledger</title>
+    <meta name="description" content="Engineering notes, local AI experiments, and useful rabbit holes.">
+    <meta name="theme-color" content="#f5f3ef">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/style.min.46dd0c3e951a8aeadd4e2e1ffe5586c463350065c32d64f5b893096fde7aa345.css">
+    <script>
+      (() => {
+        const saved = localStorage.getItem('ledger-theme');
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = saved || preferred;
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/"><span class="brand-mark">▦</span><span>Technical Ledger</span></a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="/">Logs</a>
+          <a href="/posts/">Archive</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span data-theme-icon>◐</span><span data-theme-label>Dark mode</span></button>
+        </nav>
+        <button class="mobile-theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button>
+      </div>
+    </header>
+    <main class="container">
+      
+  
+  
+    <section class="archive-heading"><p class="eyebrow">SYSTEM_DIRECTORY / ARCHIVE</p><h1>Welcome</h1></section>
+    <div class="post-list archive-list"><a class="post-card" href="/posts/first-post/"><span class="entry-number">№260729</span><span class="post-card-main"><strong>My First Post</strong><span class="tag-row"><span>#welcome</span><span>#hugo</span></span></span><span class="post-card-meta">2026-07-29<br>1 MIN</span></a></div>
+  
+
+    </main>
+    <footer class="container site-footer">
+      <div><strong>Technical Ledger</strong><p>Engineering notes, local AI experiments, and useful rabbit holes.</p></div>
+      <div class="footer-links"><a href="/index.xml">RSS</a><a href="/posts/">Archive</a><span>© 2026</span></div>
+    </footer>
+    <script>
+      document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+          document.documentElement.dataset.theme = next;
+          localStorage.setItem('ledger-theme', next);
+          document.querySelectorAll('[data-theme-label]').forEach((label) => label.textContent = next === 'dark' ? 'Light mode' : 'Dark mode');
+          document.querySelectorAll('[data-theme-icon]').forEach((icon) => icon.textContent = next === 'dark' ? '☀' : '◐');
+        });
+      });
+    </script>
+  </body>
+</html>

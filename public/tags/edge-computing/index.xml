@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Edge-Computing on modal_grift</title><link>http://localhost:1313/tags/edge-computing/</link><description>Recent content in Edge-Computing on modal_grift</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Wed, 29 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/edge-computing/index.xml" rel="self" type="application/rss+xml"/><item><title>JeanClawd: Building a Local AI Assistant with Too Much Scope</title><link>http://localhost:1313/posts/jeanclawd-building-a-local-ai-assistant/</link><pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/jeanclawd-building-a-local-ai-assistant/</guid><description>&lt;p&gt;I started JeanClawd because I wanted to find out how far “vibe coding” could take me.&lt;/p&gt;
+&lt;p&gt;I was also interested in a more practical question: how much of a useful home assistant can
+run on hardware I actually own? I like working within constraints, and I have been increasingly
+interested in running some smaller models on an ESP32 or Raspberry PI.&lt;/p&gt;
+&lt;p&gt;There is something absurd about a network-attached microphone/satellite (e.g. Alexa) sending a voice recording
+to a remote data center to be processed, so that my ceiling light can be switched on. I am also uncomfortable
+with the amount of energy a data-center use for my trivial asks, and data privacy. So JeanClawd is an
+attempt to keep nost of the moving parts local, and allows me to understand the challenges.&lt;/p&gt;</description></item></channel></rss>

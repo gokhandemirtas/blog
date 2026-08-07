@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en-gb" data-theme="light">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArkDetector: Training a small vision model to recognise industrial products · latent_shift</title>
+  <meta name="description" content="Engineering notes, experimentation, and useful rabbit holes.">
+  <meta name="theme-color" content="#f5f3ef">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.min.3938b0041757014301f6d8daa08b4f275bbb25a21e2e1a1a174679f6a4961083.css">
+  <script>
+    (() => {
+      const saved = localStorage.getItem('ledger-theme');
+      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = saved || preferred;
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="ambient-shapes" aria-hidden="true">
+    <span class="ambient-shape ambient-shape--cube" data-parallax-shape data-speed="0.08" data-rotation="0.035"></span>
+    <span class="ambient-shape ambient-shape--deca" data-parallax-shape data-speed="-0.14"
+      data-rotation="-0.055"></span>
+    <span class="ambient-shape ambient-shape--octa" data-parallax-shape data-speed="0.2" data-rotation="0.08"></span>
+    <span class="ambient-shape ambient-shape--cube-secondary" data-parallax-shape data-speed="-0.1"
+      data-rotation="0.045"></span>
+    <span class="ambient-shape ambient-shape--deca-secondary" data-parallax-shape data-speed="0.16"
+      data-rotation="-0.065"></span>
+    <span class="ambient-shape ambient-shape--octa-secondary" data-parallax-shape data-speed="-0.22"
+      data-rotation="0.09"></span>
+    <span class="ambient-shape ambient-shape--roto" data-parallax-shape data-speed="0.12" data-rotation="-0.075"></span>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <span class="brand-logo" aria-hidden="true"></span>
+        <span>latent_shift</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/posts/">Blog</a>
+        <a href="/about/">About</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
+            class="theme-icon" aria-hidden="true"><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+</svg>
+</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+</span></span><span data-theme-label>Dark</span></button>
+      </nav>
+      <button class="mobile-theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
+          class="theme-icon" aria-hidden="true"><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+</svg>
+</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+</span></span></button>
+    </div>
+  </header>
+  <main class="container">
+    
+
+
+
+  
+
+  
+
+  
+
+<div class="article-shell">
+  <article class="post">
+    <header class="post-header">
+      <p class="eyebrow">EXP_001 · 02 Aug 2026</p>
+      <h1>ArkDetector: Training a small vision model to recognise industrial products</h1>
+      <p class="post-description">Building a local product detector with nanoVLM</p>
+      <div class="article-meta">
+        <span>READING_TIME: 6 MIN</span>
+        <span>STATUS: <b class="live">PUBLISHED</b></span>
+        
+      </div>
+    </header>
+    <div class="post-content"><p>I started ArkDetector with a fairly narrow question: could I train a small vision model locally
+to recognise products made by a particular manufacturer?</p>
+<p>The products are industrial electronic components made by Arkel. To an untrained eye, many of
+them look like variations of the same circuit board, controller or display. Product names are
+not always visible, photographs arrive from different angles, and a useful detector also needs
+to know when the photograph is not an Arkel product at all.</p>
+<p>This made the project more interesting than ordinary image classification. I did not only want
+a label. I wanted a small model that accepts an image and a question, then returns a predictable
+answer that another application can consume:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;isArkel&#34;</span>: <span style="color:#66d9ef">true</span>, <span style="color:#f92672">&#34;product&#34;</span>: <span style="color:#e6db74">&#34;ARCODE&#34;</span>}
+</span></span></code></pre></div><p>For an unrelated image, the expected answer is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;isArkel&#34;</span>: <span style="color:#66d9ef">false</span>, <span style="color:#f92672">&#34;product&#34;</span>: <span style="color:#e6db74">&#34;Unknown&#34;</span>}
+</span></span></code></pre></div><h2 id="why-nanovlm">Why nanoVLM</h2>
+<p>I used Hugging Face&rsquo;s <a href="https://github.com/huggingface/nanoVLM">nanoVLM</a> as the foundation.
+It is a deliberately small and readable vision-language model, which made it much more useful
+for this experiment than treating a large pretrained model as a remote black box.</p>
+<p>The model has three main parts. A SigLIP2 vision transformer converts the image into patch
+representations. A small projection layer, including pixel shuffle, maps those representations
+into the language model&rsquo;s embedding space. SmolLM2 then generates the textual answer. In the
+configuration I settled on, the vision input is 512 pixels and the language backbone is the
+135M parameter SmolLM2 Instruct model.</p>
+<p>That architecture is slightly extravagant for a classifier. A conventional vision model with
+a fixed classification head would probably be simpler. But using a VLM let me train the output
+as language, keep the interface question-and-answer shaped, and return a small JSON object rather
+than couple the application to a numbered class list. More importantly, nanoVLM is small enough
+that I could inspect and modify the full training and generation path.</p>
+<h2 id="the-dataset-became-the-real-project">The dataset became the real project</h2>
+<p>The first version of the idea was simple: put each product&rsquo;s photographs in a directory named
+after it and train the model on the directory name. That quickly turned into a dataset pipeline.</p>
+<p>ArkDetector keeps original positive and negative images under <code>source_dataset</code>. A metadata file
+maps stable, kebab-cased directory identifiers to display names. It currently describes 64
+products, which avoids teaching the model accidental differences in capitalisation or spelling.
+The preprocessing step normalises several input formats to JPEG, resizes large images while
+preserving their proportions, and gives files deterministic names.</p>
+<p>The population step copies those sources into a generated dataset and applies transformations
+such as changes in brightness and contrast, blur, noise, hue shifts, small rotations,
+perspective distortion and crops. These transformations are not there to make a large dataset
+look impressive. They approximate the unhelpful things that happen to real photographs:
+different lighting, imperfect focus, odd framing and a product that is not facing the camera
+quite as politely as it did in the catalogue.</p>
+<p>Positive examples teach the product name. Negative examples contain animals, furniture, food,
+people, scenery and unrelated electronics, and teach the model to return <code>Unknown</code>. This second
+group matters. Without it, a closed-set classifier has no reason not to identify a kitten as the
+industrial controller it resembles least badly.</p>
+<p>The pipeline produces positive-only, negative-only and combined JSONL files. I normally train
+with the combined version. Keeping the source images separate from generated images also means
+I can change augmentation policy and rebuild the dataset without slowly corrupting the originals.</p>
+<h2 id="training-within-the-hardware-limit">Training within the hardware limit</h2>
+<p>The upstream nanoVLM configuration was designed for broad multimodal training. ArkDetector moved
+in the other direction: a local JSONL dataset, no streaming from Hugging Face, a smaller language
+backbone, and general-purpose multimodal evaluation switched off.</p>
+<p>Memory shaped the rest of the configuration. Training uses a batch size of one with eight-step
+gradient accumulation, so the effective batch is less tiny without requiring all eight samples
+to be resident at once. Both backbones use gradient checkpointing, sequence length is capped at
+1536, and the number of images packed into a sample is restricted. These choices trade training
+speed for memory. That is a reasonable exchange when the alternative is an out-of-memory error.</p>
+<p>As the dataset grew from roughly 900 generated samples to around 8,000, the run grew with it:
+validation expanded from 50 to 400 samples, evaluation became less frequent, and the training
+budget moved from 1,500 to 10,000 steps. This was not a grand architectural revelation. It was
+the more ordinary machine-learning lesson that configuration values only make sense in relation
+to the data they describe.</p>
+<p>Training records validation loss, generated-token confidence and throughput, and saves a
+checkpoint at evaluation intervals. Confidence is useful diagnostic information, but it is not
+the same thing as correctness. A confidently wrong model is still wrong, only with better
+posture.</p>
+<h2 id="a-short-history-of-changed-decisions">A short history of changed decisions</h2>
+<p>The Git history captures three changes that improved the project more than adding another model
+layer would have done.</p>
+<p>First, the fork changed from broad internet-scale VLM training to a small, local positive/negative
+dataset. Then product labels moved out of directory-name convention and into explicit metadata,
+while preprocessing learned to handle the untidy image formats found in the source material.
+Finally, plain answers such as <code>ARCODE</code> and <code>Unknown</code> became structured JSON. At the same time I
+removed an inference rule that replaced low-confidence output with <code>Unknown</code>. Rejection is now
+something the model learns from negative examples, while confidence remains evidence for the
+caller instead of silently rewriting the prediction.</p>
+<p>The testing workflow changed too. It initially expected a manually specified checkpoint and ran
+against the full JSONL dataset. It can now select the latest training run and evaluate a separate
+directory of product photographs, which makes quick tests on unseen images much less tedious.</p>
+<h2 id="evaluation-without-flattering-myself">Evaluation without flattering myself</h2>
+<p>The test runner loads a checkpoint, performs inference for each image, parses the generated JSON
+and compares both <code>isArkel</code> and <code>product</code>. It continuously writes an HTML report with the total,
+pass rate, failures per label and individual predictions, so a long run still leaves useful
+evidence if it stops halfway through.</p>
+<p>The report currently stored in the repository records 17,327 passes from 18,026 samples, or
+96.1%. That is encouraging as a check that the dataset, checkpoint and structured-output pipeline
+agree with one another. It is not a claim of 96.1% accuracy in the wild: generated variants of
+the training material are much friendlier than genuinely new photographs.</p>
+<p>The more meaningful test is a separate folder of images that did not participate in dataset
+generation. Failures grouped by product are especially useful there. They reveal whether the
+problem is a particular pair of visually similar boards, insufficient viewpoints, an output
+formatting failure, or a detector that has learned the background of the photographs rather than
+the object in them.</p>
+<h2 id="what-i-learned">What I learned</h2>
+<p>ArkDetector is not a general vision system, and that is the point. It is a small model trained
+for a bounded vocabulary on hardware I control. The interesting engineering work was not merely
+getting an image through a transformer. It was defining what “not one of ours” means, preserving
+clean source data, making model output deterministic enough for software, and building an
+evaluation loop that makes mistakes visible.</p>
+<p>The model architecture made the experiment possible, but the dataset contract made it useful.
+For narrow local AI projects, I increasingly think that is where most of the design lives.</p>
+</div>
+  </article>
+  <aside class="article-sidebar">
+    <div class="toc">
+      <p class="eyebrow">IN THIS ARTICLE</p><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-nanovlm">Why nanoVLM</a></li>
+    <li><a href="#the-dataset-became-the-real-project">The dataset became the real project</a></li>
+    <li><a href="#training-within-the-hardware-limit">Training within the hardware limit</a></li>
+    <li><a href="#a-short-history-of-changed-decisions">A short history of changed decisions</a></li>
+    <li><a href="#evaluation-without-flattering-myself">Evaluation without flattering myself</a></li>
+    <li><a href="#what-i-learned">What I learned</a></li>
+  </ul>
+</nav>
+    </div>
+    <div class="article-tags">
+      <p class="eyebrow">CLASSIFICATION</p><a href="/%20/tags/local-ai/">#local-ai</a><a href="/%20/tags/computer-vision/">#computer-vision</a><a href="/%20/tags/vision-language-models/">#vision-language-models</a><a href="/%20/tags/nanovlm/">#nanovlm</a><a href="/%20/tags/pytorch/">#pytorch</a><a href="/%20/tags/machine-learning/">#machine-learning</a>
+    </div>
+  </aside>
+</div>
+
+  </main>
+  <footer class="container site-footer">
+    <div><strong>latent_shift</strong>
+      <p>Engineering notes, experimentation, and useful rabbit holes.</p>
+    </div>
+    <div class="footer-links">Gokhan Demirtas <span>© 2026</span></div>
+  </footer>
+  <script>
+    const parallaxShapes = document.querySelectorAll("[data-parallax-shape]");
+    let parallaxFramePending = false;
+
+    const updateParallax = () => {
+      const scrollY = window.scrollY;
+      document.documentElement.style.setProperty("--background-scroll-y", `${scrollY * 0.16}px`);
+      parallaxShapes.forEach((shape) => {
+        const speed = Number(shape.dataset.speed);
+        const rotation = Number(shape.dataset.rotation);
+        shape.style.transform = `translate3d(0, ${scrollY * speed}px, 0) rotate(${scrollY * rotation}deg)`;
+      });
+      parallaxFramePending = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!parallaxFramePending) {
+        window.requestAnimationFrame(updateParallax);
+        parallaxFramePending = true;
+      }
+    }, { passive: true });
+
+    updateParallax();
+
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      button.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem("ledger-theme", next);
+        document.querySelectorAll("[data-theme-label]").forEach((label) => label.textContent = next === "dark" ? "Lite" : "Dark");
+      });
+    });
+  </script>
+</body>
+
+</html>

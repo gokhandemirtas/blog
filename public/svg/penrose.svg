@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="penrose-motif" width="240" height="240" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#000" stroke-width="2.5" stroke-linejoin="round">
+        <path d="M120 16 146 94 120 120 94 94Z"/>
+        <path d="M120 16 146 94 120 120 94 94Z" transform="rotate(72 120 120)"/>
+        <path d="M120 16 146 94 120 120 94 94Z" transform="rotate(144 120 120)"/>
+        <path d="M120 16 146 94 120 120 94 94Z" transform="rotate(216 120 120)"/>
+        <path d="M120 16 146 94 120 120 94 94Z" transform="rotate(288 120 120)"/>
+        <path d="M120 120 184 167 146 178 120 160 94 178 56 167Z"/>
+        <path d="M120 120 184 167 146 178 120 160 94 178 56 167Z" transform="rotate(72 120 120)"/>
+        <path d="M120 120 184 167 146 178 120 160 94 178 56 167Z" transform="rotate(144 120 120)"/>
+        <path d="M120 120 184 167 146 178 120 160 94 178 56 167Z" transform="rotate(216 120 120)"/>
+        <path d="M120 120 184 167 146 178 120 160 94 178 56 167Z" transform="rotate(288 120 120)"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#penrose-motif)"/>
+</svg>

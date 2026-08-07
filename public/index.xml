@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Home on latent_shift</title>
+		<link>http://localhost:1313/</link>
+		<description>Recent content in Home on latent_shift</description>
+		<generator>Hugo</generator>
+		<language>en-gb</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 02 Aug 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Detectrode: Training a small vision model to recognise industrial products</title>
+				<link>http://localhost:1313/posts/detectrode-training-a-vlm/</link>
+				<pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/detectrode-training-a-vlm/</guid>
+				<description>&lt;p&gt;I started Detectrode with a fairly narrow question: could I train a small vision model locally&#xA;to recognise products made by a particular manufacturer?&lt;/p&gt;&#xA;&lt;p&gt;The products are by imaginary Umbrella Corp. They produce zombie protection umbrellas. Product names are&#xA;not always visible, photographs arrive from different angles, and a useful detector also needs&#xA;to know when the photograph is not a product at all.&lt;/p&gt;&#xA;&lt;p&gt;This made the project more interesting than ordinary image classification. I did not only want&#xA;a label. I wanted a small model that accepts an image and a question, then returns a predictable&#xA;answer that another application can consume:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Schmarchive: A photo organizer</title>
+				<link>http://localhost:1313/posts/schmarchive/</link>
+				<pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/schmarchive/</guid>
+				<description>&lt;aside class=&#34;repository-card&#34;&gt;&#xA;  &lt;div class=&#34;repository-card-icon&#34; aria-hidden=&#34;true&#34;&gt;&#xA;    &lt;svg aria-hidden=&#34;true&#34; class=&#34;hi-svg-inline&#34; fill=&#34;none&#34; height=&#34;1.25em&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;2&#34; viewBox=&#34;0 0 24 24&#34; width=&#34;1.25em&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&#xA;  &lt;line x1=&#34;6&#34; x2=&#34;6&#34; y1=&#34;3&#34; y2=&#34;15&#34; /&gt;&#xA;  &lt;circle cx=&#34;18&#34; cy=&#34;6&#34; r=&#34;3&#34; /&gt;&#xA;  &lt;circle cx=&#34;6&#34; cy=&#34;18&#34; r=&#34;3&#34; /&gt;&#xA;  &lt;path d=&#34;M18 9a9 9 0 0 1-9 9&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;repository-card-content&#34;&gt;&#xA;    &lt;p class=&#34;eyebrow&#34;&gt;SOURCE_CODE&lt;/p&gt;&#xA;    &lt;strong&gt;Schmarchive&lt;/strong&gt;&#xA;    &lt;p&gt;Browse the source code and documentation.&lt;/p&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;a class=&#34;repository-card-link&#34; href=&#34;https://github.com/gokhandemirtas/schmarchive&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;    VIEW_REPOSITORY &lt;svg aria-hidden=&#34;true&#34; class=&#34;hi-svg-inline&#34; fill=&#34;none&#34; height=&#34;1em&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;2&#34; viewBox=&#34;0 0 24 24&#34; width=&#34;1em&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&#xA;  &lt;path d=&#34;M13 5H19V11&#34; /&gt;&#xA;  &lt;path d=&#34;M19 5L5 19&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;  &lt;/a&gt;&#xA;&lt;/aside&gt;&#xA;&#xA;&lt;p&gt;I started Schmarchive because my photo library has been steadily growing by me dumping stuff from every phone, camera, backup, and backups of backups on a drive. And I kept procrastinating and never organized it. There is a particular despair instilled by looking at a filename like&#xA;&lt;code&gt;IMG_20250703_143012.jpg&lt;/code&gt;. It tells me when the camera thinks the picture was&#xA;taken, but not where I was, what I was looking at, or whether I already have&#xA;four almost identical copies somewhere else. I wanted a small tool that could&#xA;weed out unwanted, redundant and pointless photos.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>JeanClawd: Friendly neighbourhood AI</title>
+				<link>http://localhost:1313/posts/jeanclawd-building-a-local-ai-assistant/</link>
+				<pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/jeanclawd-building-a-local-ai-assistant/</guid>
+				<description>&lt;aside class=&#34;repository-card&#34;&gt;&#xA;  &lt;div class=&#34;repository-card-icon&#34; aria-hidden=&#34;true&#34;&gt;&#xA;    &lt;svg aria-hidden=&#34;true&#34; class=&#34;hi-svg-inline&#34; fill=&#34;none&#34; height=&#34;1.25em&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;2&#34; viewBox=&#34;0 0 24 24&#34; width=&#34;1.25em&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&#xA;  &lt;line x1=&#34;6&#34; x2=&#34;6&#34; y1=&#34;3&#34; y2=&#34;15&#34; /&gt;&#xA;  &lt;circle cx=&#34;18&#34; cy=&#34;6&#34; r=&#34;3&#34; /&gt;&#xA;  &lt;circle cx=&#34;6&#34; cy=&#34;18&#34; r=&#34;3&#34; /&gt;&#xA;  &lt;path d=&#34;M18 9a9 9 0 0 1-9 9&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;repository-card-content&#34;&gt;&#xA;    &lt;p class=&#34;eyebrow&#34;&gt;SOURCE_CODE&lt;/p&gt;&#xA;    &lt;strong&gt;Schmarchive&lt;/strong&gt;&#xA;    &lt;p&gt;Browse the source code and documentation.&lt;/p&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;a class=&#34;repository-card-link&#34; href=&#34;https://github.com/gokhandemirtas/schmarchive&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;    VIEW_REPOSITORY &lt;svg aria-hidden=&#34;true&#34; class=&#34;hi-svg-inline&#34; fill=&#34;none&#34; height=&#34;1em&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;2&#34; viewBox=&#34;0 0 24 24&#34; width=&#34;1em&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&#xA;  &lt;path d=&#34;M13 5H19V11&#34; /&gt;&#xA;  &lt;path d=&#34;M19 5L5 19&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;  &lt;/a&gt;&#xA;&lt;/aside&gt;&#xA;&#xA;&lt;p&gt;I started JeanClawd because I wanted to find out how far “vibe coding” could take me.&lt;/p&gt;&#xA;&lt;p&gt;I was also interested in a more practical question: how much of a useful home assistant can&#xA;run on hardware I actually own? I like working within constraints, and I have been increasingly&#xA;interested in running some smaller models on an ESP32 or Raspberry PI.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>About Me</title>
+				<link>http://localhost:1313/about/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/about/</guid>
+				<description>&lt;h2 id=&#34;railpen&#34;&gt;Railpen&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Frontend developer · Oct 2021 - Mar 2026&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;SME responsible for all front-office web applications, establishing UI/UX and frontend coding standards through a reusable theme, a shared Angular library, Azure Marketplace and VS Code extensions, and shared linting and formatting configuration.&lt;/p&gt;&#xA;&lt;p&gt;Notable projects included an IBOR app with real-time portfolio data and trade-order capabilities, Risk Management, Rebalance, and Data Quality frameworks. I was also involved in company-wide adoption of Microsoft Foundry and AI-powered solutions.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

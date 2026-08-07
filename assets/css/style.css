@@ -127,8 +127,8 @@ body>* {
 }
 
 .ambient-shape--sitar {
-  top: 12vh;
-  left: -12vw;
+  top: 32vh;
+  left: -7vw;
    width: clamp(380px, 10vw, 150px);
 }
 
@@ -147,9 +147,9 @@ body>* {
 }
 
 .ambient-shape--sitar-secondary {
-  top: 30vh;
-  right: 36vw;
-  width: clamp(55px, 8vw, 120px);
+  top: 10vh;
+  right: 46vw;
+  width: clamp(55px, 20vw, 250px);
   --shape-opacity-factor: 0.79;
 }
 

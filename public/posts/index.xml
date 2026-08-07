@@ -10,8 +10,6 @@
 		
 		
 		
-			<lastBuildDate>Sun, 02 Aug 2026 00:00:00 +0000</lastBuildDate>
-		
 			<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Detectrode: Training a small vision model to recognise industrial products</title>

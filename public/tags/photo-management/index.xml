@@ -1,29 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Photo-Management on latent_shift</title><link>https://gokhandemirtas.github.io/blog/tags/photo-management/</link><description>Recent content in Photo-Management on latent_shift</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://gokhandemirtas.github.io/blog/tags/photo-management/index.xml" rel="self" type="application/rss+xml"/><item><title>Schmarchive: A photo organizer</title><link>https://gokhandemirtas.github.io/blog/posts/schmarchive/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate><guid>https://gokhandemirtas.github.io/blog/posts/schmarchive/</guid><description>&lt;aside class="repository-card"&gt;
- &lt;div class="repository-card-icon" aria-hidden="true"&gt;
- &lt;svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1.25em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1.25em" xmlns="http://www.w3.org/2000/svg"&gt;
- &lt;line x1="6" x2="6" y1="3" y2="15" /&gt;
- &lt;circle cx="18" cy="6" r="3" /&gt;
- &lt;circle cx="6" cy="18" r="3" /&gt;
- &lt;path d="M18 9a9 9 0 0 1-9 9" /&gt;
-&lt;/svg&gt;
-
- &lt;/div&gt;
- &lt;div class="repository-card-content"&gt;
- &lt;p class="eyebrow"&gt;SOURCE_CODE&lt;/p&gt;
- &lt;strong&gt;Schmarchive&lt;/strong&gt;
- &lt;p&gt;Browse the source code and documentation.&lt;/p&gt;
- &lt;/div&gt;
- &lt;a class="repository-card-link" href="https://github.com/gokhandemirtas/schmarchive" target="_blank" rel="noopener noreferrer"&gt;
- VIEW_REPOSITORY &lt;svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"&gt;
- &lt;path d="M13 5H19V11" /&gt;
- &lt;path d="M19 5L5 19" /&gt;
-&lt;/svg&gt;
-
- &lt;/a&gt;
-&lt;/aside&gt;
-
-&lt;p&gt;I started Schmarchive because my photo library has been steadily growing by me dumping stuff from every phone, camera, backup, and backups of backups on a drive. And I kept procrastinating and never organized it. There is a particular despair instilled by looking at a filename like
-&lt;code&gt;IMG_20250703_143012.jpg&lt;/code&gt;. It tells me when the camera thinks the picture was
-taken, but not where I was, what I was looking at, or whether I already have
-four almost identical copies somewhere else. I wanted a small tool that could
-weed out unwanted, redundant and pointless photos.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Photo-Management on latent_shift</title>
+		<link>http://localhost:1313/tags/photo-management/</link>
+		<description>Recent content in Photo-Management on latent_shift</description>
+		<generator>Hugo</generator>
+		<language>en-gb</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/photo-management/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Schmarchive: A photo organizer</title>
+				<link>http://localhost:1313/posts/schmarchive/</link>
+				<pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/schmarchive/</guid>
+				<description>&lt;aside class=&#34;repository-card&#34;&gt;&#xA;  &lt;div class=&#34;repository-card-icon&#34; aria-hidden=&#34;true&#34;&gt;&#xA;    &lt;svg aria-hidden=&#34;true&#34; class=&#34;hi-svg-inline&#34; fill=&#34;none&#34; height=&#34;1.25em&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;2&#34; viewBox=&#34;0 0 24 24&#34; width=&#34;1.25em&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&#xA;  &lt;line x1=&#34;6&#34; x2=&#34;6&#34; y1=&#34;3&#34; y2=&#34;15&#34; /&gt;&#xA;  &lt;circle cx=&#34;18&#34; cy=&#34;6&#34; r=&#34;3&#34; /&gt;&#xA;  &lt;circle cx=&#34;6&#34; cy=&#34;18&#34; r=&#34;3&#34; /&gt;&#xA;  &lt;path d=&#34;M18 9a9 9 0 0 1-9 9&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;repository-card-content&#34;&gt;&#xA;    &lt;p class=&#34;eyebrow&#34;&gt;SOURCE_CODE&lt;/p&gt;&#xA;    &lt;strong&gt;Schmarchive&lt;/strong&gt;&#xA;    &lt;p&gt;Browse the source code and documentation.&lt;/p&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;a class=&#34;repository-card-link&#34; href=&#34;https://github.com/gokhandemirtas/schmarchive&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;    VIEW_REPOSITORY &lt;svg aria-hidden=&#34;true&#34; class=&#34;hi-svg-inline&#34; fill=&#34;none&#34; height=&#34;1em&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;2&#34; viewBox=&#34;0 0 24 24&#34; width=&#34;1em&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&#xA;  &lt;path d=&#34;M13 5H19V11&#34; /&gt;&#xA;  &lt;path d=&#34;M19 5L5 19&#34; /&gt;&#xA;&lt;/svg&gt;&#xA;&#xA;  &lt;/a&gt;&#xA;&lt;/aside&gt;&#xA;&#xA;&lt;p&gt;I started Schmarchive because my photo library has been steadily growing by me dumping stuff from every phone, camera, backup, and backups of backups on a drive. And I kept procrastinating and never organized it. There is a particular despair instilled by looking at a filename like&#xA;&lt;code&gt;IMG_20250703_143012.jpg&lt;/code&gt;. It tells me when the camera thinks the picture was&#xA;taken, but not where I was, what I was looking at, or whether I already have&#xA;four almost identical copies somewhere else. I wanted a small tool that could&#xA;weed out unwanted, redundant and pointless photos.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

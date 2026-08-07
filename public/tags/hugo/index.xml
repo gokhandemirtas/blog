@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Hugo on Technical Ledger</title>
+		<title>Hugo on latent_shift</title>
 		<link>http://localhost:1313/tags/hugo/</link>
-		<description>Recent content in Hugo on Technical Ledger</description>
+		<description>Recent content in Hugo on latent_shift</description>
 		<generator>Hugo</generator>
 		<language>en-gb</language>
 		
 		
 		
 		
-			<lastBuildDate>Wed, 29 Jul 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Fri, 07 Aug 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>My First Post</title>
-				<link>http://localhost:1313/posts/first-post/</link>
-				<pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/posts/first-post/</guid>
-				<description>&lt;p&gt;This is my first post with Hugo.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-hugo&#34;&gt;Why Hugo?&lt;/h2&gt;&#xA;&lt;p&gt;Hugo turns Markdown files into a fast website. I can focus on writing while Hugo handles the pages.&lt;/p&gt;</description>
+				<title>Designing this blog with Google Stitch and Codex</title>
+				<link>http://localhost:1313/posts/stitch-codex/</link>
+				<pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/stitch-codex/</guid>
+				<description>&lt;p&gt;I wanted a small personal blog: a simple static engine, a handful of pages, and a design that felt more deliberate than a default theme. The brief was intentionally short. I asked for a home page, a blog listing, an about page, and individual posts, with a visual language that would make the site feel like mine.&lt;/p&gt;&#xA;&lt;h2 id=&#34;starting-with-a-brief&#34;&gt;Starting with a brief&lt;/h2&gt;&#xA;&lt;p&gt;I gave the brief to Codex and connected it to Google Stitch through the Model Context Protocol (MCP). Stitch is designed to turn natural-language product ideas into high-fidelity interfaces, while MCP gives a coding agent a way to retrieve the resulting design context rather than treating the design as a screenshot to imitate.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

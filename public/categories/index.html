@@ -1,14 +1,139 @@
-<!doctype html><html lang=en-gb data-theme=light><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Categories · latent_shift</title><meta name=description content="Engineering notes, experimentation, and useful rabbit holes."><meta name=theme-color content="#f5f3ef"><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=icon type=image/svg+xml href=/blog/svg/octo.svg><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel=stylesheet><link rel=stylesheet href=/blog/css/style.min.b1170fc161f53a69d37db8965f1d389f26010c0d41bda97ad8e26a21f6c6deb1.css><script>(()=>{const e=localStorage.getItem("ledger-theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=e||t})()</script></head><body><div class=ambient-shapes aria-hidden=true><span class="ambient-shape ambient-shape--sitar" data-parallax-shape data-speed=0.08 data-rotation=0.035></span>
-<span class="ambient-shape ambient-shape--plus" data-parallax-shape data-speed=-0.14 data-rotation=-0.055></span>
-<span class="ambient-shape ambient-shape--semi" data-parallax-shape data-speed=0.2 data-rotation=0.08></span>
-<span class="ambient-shape ambient-shape--sitar-secondary" data-parallax-shape data-speed=-0.1 data-rotation=0.045></span>
-<span class="ambient-shape ambient-shape--plus-secondary" data-parallax-shape data-speed=0.16 data-rotation=-0.065></span>
-<span class="ambient-shape ambient-shape--semi-secondary" data-parallax-shape data-speed=-0.22 data-rotation=0.09></span>
-<span class="ambient-shape ambient-shape--roto" data-parallax-shape data-speed=0.12 data-rotation=-0.075></span></div><header class=site-header><div class="container header-inner"><a class=brand href=/blog/><span class=brand-logo aria-hidden=true></span>
-<span>latent_shift</span></a><nav class=main-nav aria-label="Main navigation"><a href=/blog/>Home</a>
-<a href=/blog/posts/>Blog</a>
-<a href=/blog/about/>About</a>
-<button class=theme-toggle type=button aria-label="Toggle dark mode" data-theme-toggle><span class=theme-icon aria-hidden=true><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>
-</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-</span></span><span data-theme-label>Dark</span></button></nav><button class=mobile-theme-toggle type=button aria-label="Toggle dark mode" data-theme-toggle><span class=theme-icon aria-hidden=true><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>
-</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span></span></button></div></header><main class=container><section class=archive-heading><p class=eyebrow>SYSTEM_DIRECTORY / ARCHIVE</p><h1>Categories</h1></section><div class="post-list archive-list"></div></main><footer class="container site-footer"><div><strong>latent_shift</strong><p>Engineering notes, experimentation, and useful rabbit holes.</p></div><div class=footer-links>Gokhan Demirtas <span>© 2026</span></div></footer><script>const parallaxShapes=document.querySelectorAll("[data-parallax-shape]");let parallaxFramePending=!1;const updateParallax=()=>{const e=window.scrollY;document.documentElement.style.setProperty("--background-scroll-y",`${e*.16}px`),parallaxShapes.forEach(t=>{const n=Number(t.dataset.speed),s=Number(t.dataset.rotation);t.style.transform=`translate3d(0, ${e*n}px, 0) rotate(${e*s}deg)`}),parallaxFramePending=!1};window.addEventListener("scroll",()=>{parallaxFramePending||(window.requestAnimationFrame(updateParallax),parallaxFramePending=!0)},{passive:!0}),updateParallax(),document.querySelectorAll("[data-theme-toggle]").forEach(e=>{e.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=e,localStorage.setItem("ledger-theme",e),document.querySelectorAll("[data-theme-label]").forEach(t=>t.textContent=e==="dark"?"Lite":"Dark")})})</script></body></html>
+<!doctype html>
+<html lang="en-gb" data-theme="light">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Categories · latent_shift</title>
+  <meta name="description" content="Engineering notes, experimentation, and useful rabbit holes.">
+  <meta name="theme-color" content="#f5f3ef">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="/svg/octo.svg">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.min.b1170fc161f53a69d37db8965f1d389f26010c0d41bda97ad8e26a21f6c6deb1.css">
+  <script>
+    (() => {
+      const saved = localStorage.getItem('ledger-theme');
+      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = saved || preferred;
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="ambient-shapes" aria-hidden="true">
+    <span class="ambient-shape ambient-shape--sitar" data-parallax-shape data-speed="0.08" data-rotation="0.035"></span>
+    <span class="ambient-shape ambient-shape--plus" data-parallax-shape data-speed="-0.14"
+      data-rotation="-0.055"></span>
+    <span class="ambient-shape ambient-shape--semi" data-parallax-shape data-speed="0.2" data-rotation="0.08"></span>
+    <span class="ambient-shape ambient-shape--sitar-secondary" data-parallax-shape data-speed="-0.1"
+      data-rotation="0.045"></span>
+    <span class="ambient-shape ambient-shape--plus-secondary" data-parallax-shape data-speed="0.16"
+      data-rotation="-0.065"></span>
+    <span class="ambient-shape ambient-shape--semi-secondary" data-parallax-shape data-speed="-0.22"
+      data-rotation="0.09"></span>
+    <span class="ambient-shape ambient-shape--roto" data-parallax-shape data-speed="0.12" data-rotation="-0.075"></span>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <span class="brand-logo" aria-hidden="true"></span>
+        <span>latent_shift</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/posts/">Blog</a>
+        <a href="/about/">About</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
+            class="theme-icon" aria-hidden="true"><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+</svg>
+</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+</span></span><span data-theme-label>Dark</span></button>
+      </nav>
+      <button class="mobile-theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
+          class="theme-icon" aria-hidden="true"><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+</svg>
+</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+</span></span></button>
+    </div>
+  </header>
+  <main class="container">
+    
+
+
+<section class="archive-heading">
+  <p class="eyebrow">SYSTEM_DIRECTORY / ARCHIVE</p>
+  <h1>Categories</h1>
+</section>
+<div class="post-list archive-list"></div>
+
+
+  </main>
+  <footer class="container site-footer">
+    <div><strong>latent_shift</strong>
+      <p>Engineering notes, experimentation, and useful rabbit holes.</p>
+    </div>
+    <div class="footer-links">Gokhan Demirtas <span>© 2026</span></div>
+  </footer>
+  <script>
+    const parallaxShapes = document.querySelectorAll("[data-parallax-shape]");
+    let parallaxFramePending = false;
+
+    const updateParallax = () => {
+      const scrollY = window.scrollY;
+      document.documentElement.style.setProperty("--background-scroll-y", `${scrollY * 0.16}px`);
+      parallaxShapes.forEach((shape) => {
+        const speed = Number(shape.dataset.speed);
+        const rotation = Number(shape.dataset.rotation);
+        shape.style.transform = `translate3d(0, ${scrollY * speed}px, 0) rotate(${scrollY * rotation}deg)`;
+      });
+      parallaxFramePending = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!parallaxFramePending) {
+        window.requestAnimationFrame(updateParallax);
+        parallaxFramePending = true;
+      }
+    }, { passive: true });
+
+    updateParallax();
+
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      button.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem("ledger-theme", next);
+        document.querySelectorAll("[data-theme-label]").forEach((label) => label.textContent = next === "dark" ? "Lite" : "Dark");
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,90 +1,438 @@
-<!doctype html><html lang=en-gb data-theme=light><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>JeanClawd: Friendly neighbourhood AI · latent_shift</title><meta name=description content="Engineering notes, experimentation, and useful rabbit holes."><meta name=theme-color content="#f5f3ef"><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=icon type=image/svg+xml href=/blog/svg/octo.svg><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel=stylesheet><link rel=stylesheet href=/blog/css/style.min.b1170fc161f53a69d37db8965f1d389f26010c0d41bda97ad8e26a21f6c6deb1.css><script>(()=>{const e=localStorage.getItem("ledger-theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=e||t})()</script></head><body><div class=ambient-shapes aria-hidden=true><span class="ambient-shape ambient-shape--sitar" data-parallax-shape data-speed=0.08 data-rotation=0.035></span>
-<span class="ambient-shape ambient-shape--plus" data-parallax-shape data-speed=-0.14 data-rotation=-0.055></span>
-<span class="ambient-shape ambient-shape--semi" data-parallax-shape data-speed=0.2 data-rotation=0.08></span>
-<span class="ambient-shape ambient-shape--sitar-secondary" data-parallax-shape data-speed=-0.1 data-rotation=0.045></span>
-<span class="ambient-shape ambient-shape--plus-secondary" data-parallax-shape data-speed=0.16 data-rotation=-0.065></span>
-<span class="ambient-shape ambient-shape--semi-secondary" data-parallax-shape data-speed=-0.22 data-rotation=0.09></span>
-<span class="ambient-shape ambient-shape--roto" data-parallax-shape data-speed=0.12 data-rotation=-0.075></span></div><header class=site-header><div class="container header-inner"><a class=brand href=/blog/><span class=brand-logo aria-hidden=true></span>
-<span>latent_shift</span></a><nav class=main-nav aria-label="Main navigation"><a href=/blog/>Home</a>
-<a href=/blog/posts/>Blog</a>
-<a href=/blog/about/>About</a>
-<button class=theme-toggle type=button aria-label="Toggle dark mode" data-theme-toggle><span class=theme-icon aria-hidden=true><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>
-</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-</span></span><span data-theme-label>Dark</span></button></nav><button class=mobile-theme-toggle type=button aria-label="Toggle dark mode" data-theme-toggle><span class=theme-icon aria-hidden=true><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>
-</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span></span></button></div></header><main class=container><div class=article-shell><article class=post><header class=post-header><p class=eyebrow>EXP_003 · 29 Jul 2026</p><h1>JeanClawd: Friendly neighbourhood AI</h1><p class=post-description>Reflections about building a local AI assistant</p><div class=article-meta><span>READING_TIME: 14 MIN</span>
-<span>STATUS: <b class=live>PUBLISHED</b></span></div></header><div class=post-content><aside class=repository-card><div class=repository-card-icon aria-hidden=true><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1.25em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1.25em"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg></div><div class=repository-card-content><p class=eyebrow>SOURCE_CODE</p><strong>Schmarchive</strong><p>Browse the source code and documentation.</p></div><a class=repository-card-link href=https://github.com/gokhandemirtas/schmarchive target=_blank rel="noopener noreferrer">VIEW_REPOSITORY <svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><path d="M13 5h6v6"/><path d="M19 5 5 19"/></svg></a></aside><p>I started JeanClawd because I wanted to find out how far “vibe coding” could take me.</p><p>I was also interested in a more practical question: how much of a useful home assistant can
+<!doctype html>
+<html lang="en-gb" data-theme="light">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JeanClawd: Friendly neighbourhood AI · latent_shift</title>
+  <meta name="description" content="Engineering notes, experimentation, and useful rabbit holes.">
+  <meta name="theme-color" content="#f5f3ef">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="/svg/octo.svg">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.min.b1170fc161f53a69d37db8965f1d389f26010c0d41bda97ad8e26a21f6c6deb1.css">
+  <script>
+    (() => {
+      const saved = localStorage.getItem('ledger-theme');
+      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = saved || preferred;
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="ambient-shapes" aria-hidden="true">
+    <span class="ambient-shape ambient-shape--sitar" data-parallax-shape data-speed="0.08" data-rotation="0.035"></span>
+    <span class="ambient-shape ambient-shape--plus" data-parallax-shape data-speed="-0.14"
+      data-rotation="-0.055"></span>
+    <span class="ambient-shape ambient-shape--semi" data-parallax-shape data-speed="0.2" data-rotation="0.08"></span>
+    <span class="ambient-shape ambient-shape--sitar-secondary" data-parallax-shape data-speed="-0.1"
+      data-rotation="0.045"></span>
+    <span class="ambient-shape ambient-shape--plus-secondary" data-parallax-shape data-speed="0.16"
+      data-rotation="-0.065"></span>
+    <span class="ambient-shape ambient-shape--semi-secondary" data-parallax-shape data-speed="-0.22"
+      data-rotation="0.09"></span>
+    <span class="ambient-shape ambient-shape--roto" data-parallax-shape data-speed="0.12" data-rotation="-0.075"></span>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <span class="brand-logo" aria-hidden="true"></span>
+        <span>latent_shift</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/posts/">Blog</a>
+        <a href="/about/">About</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
+            class="theme-icon" aria-hidden="true"><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+</svg>
+</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+</span></span><span data-theme-label>Dark</span></button>
+      </nav>
+      <button class="mobile-theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
+          class="theme-icon" aria-hidden="true"><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+</svg>
+</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+</span></span></button>
+    </div>
+  </header>
+  <main class="container">
+    
+
+
+
+  
+
+  
+
+  
+
+  
+
+<div class="article-shell">
+  <article class="post">
+    <header class="post-header">
+      <p class="eyebrow">EXP_004 · 29 Jul 2026</p>
+      <h1>JeanClawd: Friendly neighbourhood AI</h1>
+      <p class="post-description">Reflections about building a local AI assistant</p>
+      <div class="article-meta">
+        <span>READING_TIME: 14 MIN</span>
+        <span>STATUS: <b class="live">PUBLISHED</b></span>
+        
+      </div>
+    </header>
+    <div class="post-content"><aside class="repository-card">
+  <div class="repository-card-icon" aria-hidden="true">
+    <svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1.25em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1.25em" xmlns="http://www.w3.org/2000/svg">
+  <line x1="6" x2="6" y1="3" y2="15" />
+  <circle cx="18" cy="6" r="3" />
+  <circle cx="6" cy="18" r="3" />
+  <path d="M18 9a9 9 0 0 1-9 9" />
+</svg>
+
+  </div>
+  <div class="repository-card-content">
+    <p class="eyebrow">SOURCE_CODE</p>
+    <strong>Schmarchive</strong>
+    <p>Browse the source code and documentation.</p>
+  </div>
+  <a class="repository-card-link" href="https://github.com/gokhandemirtas/schmarchive" target="_blank" rel="noopener noreferrer">
+    VIEW_REPOSITORY <svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M13 5H19V11" />
+  <path d="M19 5L5 19" />
+</svg>
+
+  </a>
+</aside>
+
+<p>I started JeanClawd because I wanted to find out how far “vibe coding” could take me.</p>
+<p>I was also interested in a more practical question: how much of a useful home assistant can
 run on hardware I actually own? I like working within constraints, and I have been increasingly
-interested in running some smaller models on an ESP32 or Raspberry PI.</p><p>There is something absurd about a network-attached microphone/satellite (e.g. Alexa) sending a voice recording
+interested in running some smaller models on an ESP32 or Raspberry PI.</p>
+<p>There is something absurd about a network-attached microphone/satellite (e.g. Alexa) sending a voice recording
 to a remote data center to be processed, so that my ceiling light can be switched on. I am also uncomfortable
 with the amount of energy a data-center use for my trivial asks, and data privacy. So JeanClawd is an
-attempt to keep nost of the moving parts local, and allows me to understand the challenges.</p><p>While I&rsquo;m shamefully aware this isn&rsquo;t in any way or shape a breakthrough, it&rsquo;s been a fun an educative experiment
-that does a lot of useful things for me. I am a software developer with focus on JS & Typescript professionally,
+attempt to keep nost of the moving parts local, and allows me to understand the challenges.</p>
+<p>While I&rsquo;m shamefully aware this isn&rsquo;t in any way or shape a breakthrough, it&rsquo;s been a fun an educative experiment
+that does a lot of useful things for me. I am a software developer with focus on JS &amp; Typescript professionally,
 but I have been clumsily using Python with my pet projects, and I would not have built this nearly as quickly
 without Claude and Codex. The code is mine in the sense that I chose the direction, evaluated the results,
 and kept changing the design. But AI-assisted coding did a lot of the typing and made my tendency toward
-grandiose scope creep considerably worse.</p><h2 id=scope-creep>Scope creep</h2><p>My personal projects tend to start with a small moon and immediately mutate into a jupiter.</p><p>The initial idea was a command line chatbot. Then came questions like:</p><ul><li>How about also a mobile app to access the chatbot when I&rsquo;m away?</li><li>Yeah I want it to check the weather, Microsoft stocks, news, oh an also set a reminder, and take notes, aaand make plans&mldr;.</li><li>Oh I definitely want to speak with it, and while I&rsquo;m at it let it speak back</li></ul><p>That is how a terminal chatbot became a Python application with a CLI, REST and WebSocket API,
+grandiose scope creep considerably worse.</p>
+<h2 id="scope-creep">Scope creep</h2>
+<p>My personal projects tend to start with a small moon and immediately mutate into a jupiter.</p>
+<p>The initial idea was a command line chatbot. Then came questions like:</p>
+<ul>
+<li>How about also a mobile app to access the chatbot when I&rsquo;m away?</li>
+<li>Yeah I want it to check the weather, Microsoft stocks, news, oh an also set a reminder, and take notes, aaand make plans&hellip;.</li>
+<li>Oh I definitely want to speak with it, and while I&rsquo;m at it let it speak back</li>
+</ul>
+<p>That is how a terminal chatbot became a Python application with a CLI, REST and WebSocket API,
 Telegram interface, MCP server, voice input and output, vision, persistent memory, resumable
-sessions, research agents, personas, and external-service connectors.</p><p>The name is a play on OpenClaw, and a tribute to Jean-Claude Van Damme, one of my childhood
+sessions, research agents, personas, and external-service connectors.</p>
+<p>The name is a play on OpenClaw, and a tribute to Jean-Claude Van Damme, one of my childhood
 heroes. JeanClawd is nowhere near as capable as OpenClaw. It may have potential, or it may not.
-That uncertainty is part of the fun.</p><h2 id=the-hardware-constraint-is-part-of-the-design>The hardware constraint is part of the design</h2><p>I initially worked on my PC running Ubuntu equipped with an RTX 3090 Founders Edition.
-It&rsquo;s great for running a single model, but 24 GB of VRAM still was a hard limit.</p><p>I initially used llama.cpp because I wanted a truly portable solution using models in popular GGUF format,
+That uncertainty is part of the fun.</p>
+<h2 id="the-hardware-constraint-is-part-of-the-design">The hardware constraint is part of the design</h2>
+<p>I initially worked on my PC running Ubuntu equipped with an RTX 3090 Founders Edition.
+It&rsquo;s great for running a single model, but 24 GB of VRAM still was a hard limit.</p>
+<p>I initially used llama.cpp because I wanted a truly portable solution using models in popular GGUF format,
 and not to depend on LM Studio or Ollama. Later I gravitated toward LM Studio, partly because it&rsquo;s fast, easy, and has MCP support.
 Adjusting model parameters is simple so you can plan the memory usage, and LM Link allows me to offload
-inference to other machines on my network.</p><p>That was not a complete abandonment of llama.cpp. The provider remains available, can be switched on with a flag.
-On my current M1 Mac Studio, MLX support and plethora of MLX models make LM Studio more attractive.</p><p>The Mac is slower than the PC for raw inference, but unified memory is a blessing here. It can
+inference to other machines on my network.</p>
+<p>That was not a complete abandonment of llama.cpp. The provider remains available, can be switched on with a flag.
+On my current M1 Mac Studio, MLX support and plethora of MLX models make LM Studio more attractive.</p>
+<p>The Mac is slower than the PC for raw inference, but unified memory is a blessing here. It can
 keep all five models running in parallel without making me constantly choose which one to unload.
-Earlier in the project I was hotswapping models, which proved detrimental as it was always a cold start.</p><h3 id=performance>Performance</h3><p>Here are the <a href=https://github.com/CodeGeekR/benchmark-ai-tops>benchmark</a> results from the M1 Mac Studio used for this project:</p><table><thead><tr><th>System component</th><th style=text-align:right>Result</th></tr></thead><tbody><tr><td>Operating system</td><td style=text-align:right>Darwin 25.1.0</td></tr><tr><td>Memory</td><td style=text-align:right>64.0 GB</td></tr><tr><td>CPU</td><td style=text-align:right>ARM · 10 physical / 10 logical cores</td></tr><tr><td>GPU</td><td style=text-align:right>Apple MPS · 24 cores</td></tr><tr><td>NPU</td><td style=text-align:right>Enabled</td></tr></tbody></table><table><thead><tr><th>Benchmark</th><th style=text-align:right>Result</th></tr></thead><tbody><tr><td>CPU baseline (FP32)</td><td style=text-align:right>293.23 GFLOPS</td></tr><tr><td>GPU Metal (FP16)</td><td style=text-align:right>7.06 TOPS</td></tr><tr><td>NPU (FP16)</td><td style=text-align:right>10.72 TOPS</td></tr><tr><td>NPU (quantized W8A16)</td><td style=text-align:right>11.38 TOPS</td></tr></tbody></table><table><thead><tr><th>Technical performance report</th><th style=text-align:right>Result</th></tr></thead><tbody><tr><td>CPU (general processing)</td><td style=text-align:right>293.23 GFLOPS</td></tr><tr><td>GPU (graphics / basic AI)</td><td style=text-align:right>7.06 TOPS</td></tr><tr><td>NPU (high-precision AI)</td><td style=text-align:right>10.72 TOPS</td></tr><tr><td>NPU (quantized W8A16)</td><td style=text-align:right>11.38 TOPS</td></tr></tbody></table><p>The approximately 11.4 TOPS result represents roughly 50% of the theoretical peak
+Earlier in the project I was hotswapping models, which proved detrimental as it was always a cold start.</p>
+<h3 id="performance">Performance</h3>
+<p>Here are the <a href="https://github.com/CodeGeekR/benchmark-ai-tops">benchmark</a> results from the M1 Mac Studio used for this project:</p>
+<table>
+	<thead>
+			<tr>
+					<th>System component</th>
+					<th style="text-align: right">Result</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Operating system</td>
+					<td style="text-align: right">Darwin 25.1.0</td>
+			</tr>
+			<tr>
+					<td>Memory</td>
+					<td style="text-align: right">64.0 GB</td>
+			</tr>
+			<tr>
+					<td>CPU</td>
+					<td style="text-align: right">ARM · 10 physical / 10 logical cores</td>
+			</tr>
+			<tr>
+					<td>GPU</td>
+					<td style="text-align: right">Apple MPS · 24 cores</td>
+			</tr>
+			<tr>
+					<td>NPU</td>
+					<td style="text-align: right">Enabled</td>
+			</tr>
+	</tbody>
+</table>
+<table>
+	<thead>
+			<tr>
+					<th>Benchmark</th>
+					<th style="text-align: right">Result</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>CPU baseline (FP32)</td>
+					<td style="text-align: right">293.23 GFLOPS</td>
+			</tr>
+			<tr>
+					<td>GPU Metal (FP16)</td>
+					<td style="text-align: right">7.06 TOPS</td>
+			</tr>
+			<tr>
+					<td>NPU (FP16)</td>
+					<td style="text-align: right">10.72 TOPS</td>
+			</tr>
+			<tr>
+					<td>NPU (quantized W8A16)</td>
+					<td style="text-align: right">11.38 TOPS</td>
+			</tr>
+	</tbody>
+</table>
+<table>
+	<thead>
+			<tr>
+					<th>Technical performance report</th>
+					<th style="text-align: right">Result</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>CPU (general processing)</td>
+					<td style="text-align: right">293.23 GFLOPS</td>
+			</tr>
+			<tr>
+					<td>GPU (graphics / basic AI)</td>
+					<td style="text-align: right">7.06 TOPS</td>
+			</tr>
+			<tr>
+					<td>NPU (high-precision AI)</td>
+					<td style="text-align: right">10.72 TOPS</td>
+			</tr>
+			<tr>
+					<td>NPU (quantized W8A16)</td>
+					<td style="text-align: right">11.38 TOPS</td>
+			</tr>
+	</tbody>
+</table>
+<p>The approximately 11.4 TOPS result represents roughly 50% of the theoretical peak
 reported by this benchmark. This is the maximum measured performance without data
 calibration using W8A16. Reaching the maximum TOPS figure with W8A8 requires a real,
-trained model for data calibration.</p><p>On this hardware, I am getting the following inference performance with LM Studio. These
-figures come from a small sample of live requests rather than a controlled benchmark.</p><table><thead><tr><th>Model</th><th style=text-align:right>Requests</th><th style=text-align:right>Server generation</th><th style=text-align:right>Measured generation</th><th style=text-align:right>Average TTFT</th><th style=text-align:right>End-to-end throughput</th></tr></thead><tbody><tr><td>Qwen3 30B A3B Instruct 2507 (MLX)</td><td style=text-align:right>3</td><td style=text-align:right>50.02–58.28 tok/s</td><td style=text-align:right>51.49–75.08 tok/s</td><td style=text-align:right>2.24–4.99 s</td><td style=text-align:right>7.26–14.93 tok/s</td></tr><tr><td>Meta Llama 3.1 8B Instruct</td><td style=text-align:right>1</td><td style=text-align:right>58.85 tok/s</td><td style=text-align:right>80.09 tok/s</td><td style=text-align:right>7.62 s</td><td style=text-align:right>2.79 tok/s</td></tr></tbody></table><p>Across the three Qwen requests, the averages were approximately 55.37 tok/s server-side,
+trained model for data calibration.</p>
+<p>On this hardware, I am getting the following inference performance with LM Studio. These
+figures come from a small sample of live requests rather than a controlled benchmark.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Model</th>
+					<th style="text-align: right">Requests</th>
+					<th style="text-align: right">Server generation</th>
+					<th style="text-align: right">Measured generation</th>
+					<th style="text-align: right">Average TTFT</th>
+					<th style="text-align: right">End-to-end throughput</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Qwen3 30B A3B Instruct 2507 (MLX)</td>
+					<td style="text-align: right">3</td>
+					<td style="text-align: right">50.02–58.28 tok/s</td>
+					<td style="text-align: right">51.49–75.08 tok/s</td>
+					<td style="text-align: right">2.24–4.99 s</td>
+					<td style="text-align: right">7.26–14.93 tok/s</td>
+			</tr>
+			<tr>
+					<td>Meta Llama 3.1 8B Instruct</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">58.85 tok/s</td>
+					<td style="text-align: right">80.09 tok/s</td>
+					<td style="text-align: right">7.62 s</td>
+					<td style="text-align: right">2.79 tok/s</td>
+			</tr>
+	</tbody>
+</table>
+<p>Across the three Qwen requests, the averages were approximately 55.37 tok/s server-side,
 64.96 tok/s as measured by the client, 3.09 seconds time to first token, and 10.26 tok/s
 end-to-end. The end-to-end figure includes prompt processing and therefore drops sharply
-when the generated response is short.</p><h3 id=backend-comparison>Backend comparison</h3><p>These runs used Qwen3 8B Q4 K-M quantization with a 256-token output limit, resulted in negligible difference in speed.</p><table><thead><tr><th>Backend</th><th>Model</th><th style=text-align:right>Median latency</th><th style=text-align:right>Median wall-clock rate</th><th style=text-align:right>Median decode rate</th><th style=text-align:right>Output tokens</th><th></th></tr></thead><tbody><tr><td>Ollama</td><td><code>qwen3-8b-q4km</code></td><td style=text-align:right>6.767 s</td><td style=text-align:right>37.83 tok/s</td><td style=text-align:right>38.74 tok/s</td><td style=text-align:right>256</td><td></td></tr><tr><td>LM Studio</td><td><code>qwen/qwen3-8b</code></td><td style=text-align:right>6.766 s</td><td style=text-align:right>37.84 tok/s</td><td style=text-align:right>37.84 tok/s</td><td style=text-align:right>256</td><td></td></tr><tr><td>llama.cpp</td><td><code>Qwen3-8B-Q4_K_M.gguf</code></td><td style=text-align:right>6.695 s</td><td style=text-align:right>38.24 tok/s</td><td style=text-align:right>38.24 tok/s</td><td style=text-align:right>256</td><td></td></tr></tbody></table><h3 id=relative-results>Relative results</h3><table><thead><tr><th>Metric</th><th>Fastest</th><th style=text-align:right>Difference versus slowest</th></tr></thead><tbody><tr><td>Latency</td><td>llama.cpp</td><td style=text-align:right>1.05% faster than LM Studio</td></tr><tr><td>Wall-clock throughput</td><td>llama.cpp</td><td style=text-align:right>1.06% faster than LM Studio</td></tr><tr><td>Decode throughput</td><td>Ollama</td><td style=text-align:right>2.32% faster than LM Studio</td></tr></tbody></table><h2 id=task-delegation-for-models>Task delegation for models</h2><p>The current model arrangement is intentionally split:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>user request
-</span></span><span style=display:flex><span>    │
-</span></span><span style=display:flex><span>    ├── intent model      → classify primary intent, route to skill
-</span></span><span style=display:flex><span>    ├── generalist model  → classify route intent, fire handler, return response
-</span></span><span style=display:flex><span>    ├── generalist model  → infuse the conversation with response, reason and respond
-</span></span><span style=display:flex><span>    └── vision model      → analyse an uploaded image
-</span></span><span style=display:flex><span>    └── research model    → describe images when needed
+when the generated response is short.</p>
+<h3 id="backend-comparison">Backend comparison</h3>
+<p>These runs used Qwen3 8B Q4 K-M quantization with a 256-token output limit, resulted in negligible difference in speed.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Backend</th>
+					<th>Model</th>
+					<th style="text-align: right">Median latency</th>
+					<th style="text-align: right">Median wall-clock rate</th>
+					<th style="text-align: right">Median decode rate</th>
+					<th style="text-align: right">Output tokens</th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Ollama</td>
+					<td><code>qwen3-8b-q4km</code></td>
+					<td style="text-align: right">6.767 s</td>
+					<td style="text-align: right">37.83 tok/s</td>
+					<td style="text-align: right">38.74 tok/s</td>
+					<td style="text-align: right">256</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>LM Studio</td>
+					<td><code>qwen/qwen3-8b</code></td>
+					<td style="text-align: right">6.766 s</td>
+					<td style="text-align: right">37.84 tok/s</td>
+					<td style="text-align: right">37.84 tok/s</td>
+					<td style="text-align: right">256</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>llama.cpp</td>
+					<td><code>Qwen3-8B-Q4_K_M.gguf</code></td>
+					<td style="text-align: right">6.695 s</td>
+					<td style="text-align: right">38.24 tok/s</td>
+					<td style="text-align: right">38.24 tok/s</td>
+					<td style="text-align: right">256</td>
+					<td></td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="relative-results">Relative results</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Metric</th>
+					<th>Fastest</th>
+					<th style="text-align: right">Difference versus slowest</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Latency</td>
+					<td>llama.cpp</td>
+					<td style="text-align: right">1.05% faster than LM Studio</td>
+			</tr>
+			<tr>
+					<td>Wall-clock throughput</td>
+					<td>llama.cpp</td>
+					<td style="text-align: right">1.06% faster than LM Studio</td>
+			</tr>
+			<tr>
+					<td>Decode throughput</td>
+					<td>Ollama</td>
+					<td style="text-align: right">2.32% faster than LM Studio</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="task-delegation-for-models">Task delegation for models</h2>
+<p>The current model arrangement is intentionally split:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>user request
+</span></span><span style="display:flex;"><span>    │
+</span></span><span style="display:flex;"><span>    ├── intent model      → classify primary intent, route to skill
+</span></span><span style="display:flex;"><span>    ├── generalist model  → classify route intent, fire handler, return response
+</span></span><span style="display:flex;"><span>    ├── generalist model  → infuse the conversation with response, reason and respond
+</span></span><span style="display:flex;"><span>    └── vision model      → analyse an uploaded image
+</span></span><span style="display:flex;"><span>    └── research model    → describe images when needed
 </span></span></code></pre></div><p>The generalist is Qwen3 30B A3B Instruct in an MLX 4-bit format. The intent model is an 8B
 Llama3.1 model. The vision model is Qwen3-VL 4B. There is a dedicated research model that only is used by search / deep research skills with ReAct pattern.
-There is also a separate embedding model for vectorization, and memory retrieval.</p><p>I experimented with using a single mixture-of-experts model for routing, reasoning, and response generation. A recurring problem was that routing and intent-resolution context could contaminate the model’s conversational context and produce incoherent answers. I therefore separated intent resolution from execution: routing selects the next skill, then its intermediate reasoning is discarded. Only the selected skill’s result and the normal conversation context continue downstream.</p><p>The generalist has a larger, cleaner conversation context (which is adjustable in LM Studio). It handles conversation, content curation, summaries, topic extraction and anchoring the conversation on what was discussed in previous turns, so I could ask follow up questions.</p><p>The vision model runs with a smaller context and has one job: describe what it sees. That description is then injected into the wider conversation by the generalist.</p><h2 id=skills-vs-tools>Skills vs tools</h2><p>Earlier I relied on model tool calling. This failed spectacularly.</p><p>The model hallucinated tools, didn&rsquo;t call them half the time or called them with missing arguments.
+There is also a separate embedding model for vectorization, and memory retrieval.</p>
+<p>I experimented with using a single mixture-of-experts model for routing, reasoning, and response generation. A recurring problem was that routing and intent-resolution context could contaminate the model’s conversational context and produce incoherent answers. I therefore separated intent resolution from execution: routing selects the next skill, then its intermediate reasoning is discarded. Only the selected skill’s result and the normal conversation context continue downstream.</p>
+<p>The generalist has a larger, cleaner conversation context (which is adjustable in LM Studio). It handles conversation, content curation, summaries, topic extraction and anchoring the conversation on what was discussed in previous turns, so I could ask follow up questions.</p>
+<p>The vision model runs with a smaller context and has one job: describe what it sees. That description is then injected into the wider conversation by the generalist.</p>
+<h2 id="skills-vs-tools">Skills vs tools</h2>
+<p>Earlier I relied on model tool calling. This failed spectacularly.</p>
+<p>The model hallucinated tools, didn&rsquo;t call them half the time or called them with missing arguments.
 And not every LLM has tool support. I needed something more reliable, and also I wanted structured outputs that follows my DB schemas.
-I initially used <a href=https://dev.to/shrsv/taming-llms-how-to-get-structured-output-every-time-even-for-big-responses-445c>Outlines</a>. It constrains token selection during generation (to validate the JSON schema, therefore it&rsquo;s slow),
-Then I switched to Pydantic which validates post generation, retry if needed.</p><p>So when I request: &ldquo;Create a reminder to bake a cake next Tuesday&rdquo;, the structured output is:</p><pre tabindex=0><code>{
+I initially used <a href="https://dev.to/shrsv/taming-llms-how-to-get-structured-output-every-time-even-for-big-responses-445c">Outlines</a>. It constrains token selection during generation (to validate the JSON schema, therefore it&rsquo;s slow),
+Then I switched to Pydantic which validates post generation, retry if needed.</p>
+<p>So when I request: &ldquo;Create a reminder to bake a cake next Tuesday&rdquo;, the structured output is:</p>
+<pre tabindex="0"><code>{
   &#34;type&#34;: &#34;REMINDER&#34;,
   &#34;datetime&#34;: &#34;2026-08-04T00:00:00&#34;,
   &#34;description&#34;: &#34;bake a cake&#34;
 }
 </code></pre><p>A skill is a self-contained piece of code extending a base skill class. It has an identifier,
 description, system prompt, and implementation. The implementation can call Python code, an
-API, update the DB, then return a structured or unstructured response.</p><p>Skills are exposed through a registry, so the agent knows it&rsquo;s own capabilities.
-What happens inside a skill is deliberately open-ended—within reasonable safety boundaries.</p><h2 id=connectors>Connectors</h2><p>A connector handles authenticated access to service such as Spotify or an email provider. A skill describes what JeanClawd
-can do; a connector describes how it connects to an external service using the user’s credentials.</p><p>The connector registry currently has Spotify and Philips Hue connectors. The
+API, update the DB, then return a structured or unstructured response.</p>
+<p>Skills are exposed through a registry, so the agent knows it&rsquo;s own capabilities.
+What happens inside a skill is deliberately open-ended—within reasonable safety boundaries.</p>
+<h2 id="connectors">Connectors</h2>
+<p>A connector handles authenticated access to service such as Spotify or an email provider. A skill describes what JeanClawd
+can do; a connector describes how it connects to an external service using the user’s credentials.</p>
+<p>The connector registry currently has Spotify and Philips Hue connectors. The
 remaining awkward part is dependency management: official SDKs tend to become dependencies of
 the main project even when some users may never use that connector. I have not solved that
-properly yet.</p><h2 id=long-term-and-short-term-memory>Long-term and short-term memory</h2><p>These are two different mechanisms rather than two names for the same store.</p><p>Short-term memory is the working context of the current conversation. Recent user and assistant
+properly yet.</p>
+<h2 id="long-term-and-short-term-memory">Long-term and short-term memory</h2>
+<p>These are two different mechanisms rather than two names for the same store.</p>
+<p>Short-term memory is the working context of the current conversation. Recent user and assistant
 messages are held in process so the assistant can resolve follow-up questions and maintain a
 conversation thread. When that history approaches its limit, older turns are compressed into a
 rolling summary. Both the summary and the completed turns are persisted with the session: this
 makes a session resumable without putting every historical message into every prompt. When a
-session is resumed, JeanClawd restores the saved summary and a bounded set of recent interactions.</p><p>Long-term memory is a small, user-scoped profile of durable facts, such as a name, location,
+session is resumed, JeanClawd restores the saved summary and a bounded set of recent interactions.</p>
+<p>Long-term memory is a small, user-scoped profile of durable facts, such as a name, location,
 occupation, interests, likes, dislikes, and relationships. It is not a transcript and it is not
 intended to remember every detail of a conversation. Completed turns are saved as interaction
 records, then an asynchronous LangMem extraction step examines the user message together with the
 assistant response. The extractor is instructed to record only information explicitly stated by
 the user, avoid guesses and temporary details, merge duplicates, and replace facts when the user
 corrects them. LangMem maintains this compact structured profile in MongoDB, with the configured
-local embedding model providing semantic search over its fields.</p><p>This separation is important. The session summary and recent interactions preserve conversational
+local embedding model providing semantic search over its fields.</p>
+<p>This separation is important. The session summary and recent interactions preserve conversational
 continuity; the profile preserves durable personal context across sessions. Explicit application
 settings—persona, voice ID, Spotify device, and news length—are kept in a normal database document
-instead of being inferred as memories, because configuration should be deterministic.</p><p>I first tried Mem0 with Qdrant and the embedding model. I was not happy with the results: the
+instead of being inferred as memories, because configuration should be deterministic.</p>
+<p>I first tried Mem0 with Qdrant and the embedding model. I was not happy with the results: the
 smaller extraction model often struggled to distinguish durable facts from trivial conversational
 details, so the memory became polluted with unusable entries. I then tried a bespoke system that
 ran retrospective fact extraction after inactivity and debounced the work so it would not slow the
 main request path. The current LangMem approach is more satisfactory because the schema and
-extraction rules keep the profile compact, while extraction still runs in the background.</p><p>There is an important difference between memory persistence and memory retrieval. A fact can be
+extraction rules keep the profile compact, while extraction still runs in the background.</p>
+<p>There is an important difference between memory persistence and memory retrieval. A fact can be
 correctly stored in MongoDB and still not appear in an answer. Normal conversation turns do not
 load the entire profile: explicit questions about the user&rsquo;s profile load the bounded profile
 context, while other turns must first look personal and then pass the query through semantic
@@ -92,33 +440,141 @@ retrieval. Retrieved facts are capped and recently repeated facts are temporaril
 personalization does not dominate every response. This improves prompt hygiene, but it also means
 that a weak query classifier, an overly narrow vector search, or irrelevant wording can hide a
 fact that is present in the database. The <code>/memories</code> command and MCP memory tools query the stored
-profile directly and are useful for distinguishing a storage problem from a retrieval problem.</p><p>The current implementation consequently has three persistence layers: interaction records for
+profile directly and are useful for distinguishing a storage problem from a retrieval problem.</p>
+<p>The current implementation consequently has three persistence layers: interaction records for
 the conversation archive, session summaries and recent interactions for resumable short-term
 context, and the LangMem profile for durable user facts. The same long-term facts can eventually
 influence reminders and plans. A personal assistant should not just remember what I like; it should
-be able to use that information when helping me decide what to do next.</p><h2 id=voice-interaction>Voice interaction</h2><p>Whisper with base model made speech-to-text straightforward. It is an excellent open-source library and easy to
-give an application a voice input path.</p><p>The difficult part is wake-word detection. Without a reliable wake word, the alternative is to
+be able to use that information when helping me decide what to do next.</p>
+<h2 id="voice-interaction">Voice interaction</h2>
+<p>Whisper with base model made speech-to-text straightforward. It is an excellent open-source library and easy to
+give an application a voice input path.</p>
+<p>The difficult part is wake-word detection. Without a reliable wake word, the alternative is to
 keep processing the room in audio segments and constantly search for intelligible speech.
 Microphone sensitivity, silence detection, chopping audio into useful segments, and deciding
-when to trigger the STT pipeline all took many attempts.</p><p>I have not yet tested a network microphone listening to the room. I have identified a couple of
-ESP32 boards for that future project.</p><p>Text-to-speech also runs locally, but outside LM Studio. The project moved from Pocket TTS to
+when to trigger the STT pipeline all took many attempts.</p>
+<p>I have not yet tested a network microphone listening to the room. I have identified a couple of
+ESP32 boards for that future project.</p>
+<p>Text-to-speech also runs locally, but outside LM Studio. The project moved from Pocket TTS to
 Supertonic so I could experiment with more expressive voice generation. Both are fast enough to
 run on the CPU, which is useful because audio processing does not have to fight the language
-models for resources.</p><p>TTS cancellation became necessary because I am developing everything at once and constantly
+models for resources.</p>
+<p>TTS cancellation became necessary because I am developing everything at once and constantly
 switching to whichever idea appears next. Barge-in is also a basic expectation now. Gemini,
 Copilot, and ChatGPT’s mobile applications let users interrupt spoken responses. Without that,
-the interaction is turn based, like wireless-radio communication.</p><h2 id=personas>Personas</h2><p>Personas are mainly me entertaining myself and testing how much tone and behavious I can tune
+the interaction is turn based, like wireless-radio communication.</p>
+<h2 id="personas">Personas</h2>
+<p>Personas are mainly me entertaining myself and testing how much tone and behavious I can tune
 without breaking the core functionality. Personas mostly flavor communication rather than changing the actual
-capabilities of the system.</p><p>They have a greeting style, behavior, character, and default voice ID. Voice IDs can also be
-configured independently.</p><p>The problem is that the model can get carried away. Sometimes the character becomes more
+capabilities of the system.</p>
+<p>They have a greeting style, behavior, character, and default voice ID. Voice IDs can also be
+configured independently.</p>
+<p>The problem is that the model can get carried away. Sometimes the character becomes more
 important than answering the user’s original question. An adaptive persona based on memories
-exists too, but it is not very good yet.</p><p>The alien persona is probably the most fun example. I added custom vocabulary, and listening to
-its chittery clicky voice still makes me laugh.</p><h2 id=useful-features-and-failed-experiments>Useful features and failed experiments</h2><p>Today I use JeanClawd for weather, stock information, Hue lights, and deep research. Research
-mode writes its findings to a Markdown file that I can read later.</p><p>I&rsquo;ve added an introspection mode for it to have read-only access to it&rsquo;s source code, then record it&rsquo;s findings in .md files. Although the results are not super impressive, it can first identify itself as an application instead of just an LLM, and (poorly) explain how itself works.</p><p>Face tracking is an experiment in uncanny valley. The idea was to track my face, understand facial
-expressions, and adjust the assistant’s response. Not a success so far, and I&rsquo;m not sure if it&rsquo;s a great idea for my mental health.</p><p>Follow-up questions are another weak point. I added a topic lock and release mechanism so the
+exists too, but it is not very good yet.</p>
+<p>The alien persona is probably the most fun example. I added custom vocabulary, and listening to
+its chittery clicky voice still makes me laugh.</p>
+<h2 id="useful-features-and-failed-experiments">Useful features and failed experiments</h2>
+<p>Today I use JeanClawd for weather, stock information, Hue lights, and deep research. Research
+mode writes its findings to a Markdown file that I can read later.</p>
+<p>I&rsquo;ve added an introspection mode for it to have read-only access to it&rsquo;s source code, then record it&rsquo;s findings in .md files. Although the results are not super impressive, it can first identify itself as an application instead of just an LLM, and (poorly) explain how itself works.</p>
+<p>Face tracking is an experiment in uncanny valley. The idea was to track my face, understand facial
+expressions, and adjust the assistant’s response. Not a success so far, and I&rsquo;m not sure if it&rsquo;s a great idea for my mental health.</p>
+<p>Follow-up questions are another weak point. I added a topic lock and release mechanism so the
 assistant can follow up on an earlier subject while still allowing me to change topics. This is
-basic behavior in ChatGPT, but it has been surprisingly difficult to reproduce reliably.</p><p>Sometimes the topic remains locked, or the wrong topic is identified. The result can be absurd:
+basic behavior in ChatGPT, but it has been surprisingly difficult to reproduce reliably.</p>
+<p>Sometimes the topic remains locked, or the wrong topic is identified. The result can be absurd:
 a phrase such as “the user doesn’t like candy” gets sent as a search query to Tavily or DuckDuckGo.
 These failures are useful reminders that every layer of an agent system can amplify a small
-classification mistake.</p><h2 id=what-i-have-learned-so-far>What I have learned so far</h2><p>The main lesson is that a personal assistant should best be tasked with things you&rsquo;re too lazy to do. In fact, this blog post is a product of me asking the agent to interview me, about itself then write a markdown file for me to review. How crazy is that ?</p><h4 id=lesson-1>Lesson 1</h4><p>Like any software product this also is an intersection of concerns, and understanding where boundaries meet (which kept moving, a lot of times). The rest is orchestration, and cohesive response to any random request. It&rsquo;s vibe-coded, and although reviewed by multiple models it may lack finesse if it was hand coded by a seasoned Python dev. I&rsquo;ve treated the development process as an MVP, and as if I&rsquo;m working for a startup. If I started from scratch, I&rsquo;d probably utilize PRD&rsquo;s and more granular commits.</p><h4 id=lesson-2>Lesson 2</h4><p>With a background in UI engineering I&rsquo;ve long learned to expect the unexpected from users. Of course we try and guide, but they can do anything in any order. So I&rsquo;m testing the application as an average Joe, then identify what parts needs hardening. Sometimes over hardening a system prompt results in an unresponsive agent, or misclassified intent.</p><h4 id=lesson-3>Lesson 3</h4><p>AI-assisted coding changes the economics of experimentation. Claude and Codex made it possible for me to explore far more ideas than I would have implemented manually. That does not remove the need for judgment, or good architecture. It makes judgment more important, because it becomes
-easy to create ten plausible abstractions before discovering that the original assumption was wrong. LLM&rsquo;s are calibrated to affirm and validate their users, including our misconceptions and poor understanding. This can amplify bad patterns, security issues, and scalability.</p><h2 id=future-plans>Future plans</h2><p>I really like upcycling, and I&rsquo;ve got a lot of discarded hardware enclosures that I want to utilize. I&rsquo;m currently in the process of identifying a list of parts, so that I can build network attached microphone/speaker satellites to access the assistant from different rooms in my house. If possible, wakeword detection and speech recording could be offloaded to these as well as extend the abilities with proximity sensors, temperature and humidity readings from different rooms, and even play some music from my Spotify.</p><p>Exciting stuff, but I need to get a solder gun first!</p></div></article><aside class=article-sidebar><div class=toc><p class=eyebrow>IN THIS ARTICLE</p><nav id=TableOfContents><ul><li><a href=#scope-creep>Scope creep</a></li><li><a href=#the-hardware-constraint-is-part-of-the-design>The hardware constraint is part of the design</a><ul><li><a href=#performance>Performance</a></li><li><a href=#backend-comparison>Backend comparison</a></li><li><a href=#relative-results>Relative results</a></li></ul></li><li><a href=#task-delegation-for-models>Task delegation for models</a></li><li><a href=#skills-vs-tools>Skills vs tools</a></li><li><a href=#connectors>Connectors</a></li><li><a href=#long-term-and-short-term-memory>Long-term and short-term memory</a></li><li><a href=#voice-interaction>Voice interaction</a></li><li><a href=#personas>Personas</a></li><li><a href=#useful-features-and-failed-experiments>Useful features and failed experiments</a></li><li><a href=#what-i-have-learned-so-far>What I have learned so far</a><ul><li></li></ul></li><li><a href=#future-plans>Future plans</a></li></ul></nav></div><div class=article-tags><p class=eyebrow>CLASSIFICATION</p><a href=/blog/%20/tags/local-ai/>#local-ai</a><a href=/blog/%20/tags/ollama/>#ollama</a><a href=/blog/%20/tags/lm-studio/>#lm-studio</a><a href=/blog/%20/tags/llms/>#llms</a><a href=/blog/%20/tags/python/>#python</a><a href=/blog/%20/tags/vibe-coding/>#vibe-coding</a><a href=/blog/%20/tags/personal-assistant/>#personal-assistant</a></div></aside></div></main><footer class="container site-footer"><div><strong>latent_shift</strong><p>Engineering notes, experimentation, and useful rabbit holes.</p></div><div class=footer-links>Gokhan Demirtas <span>© 2026</span></div></footer><script>const parallaxShapes=document.querySelectorAll("[data-parallax-shape]");let parallaxFramePending=!1;const updateParallax=()=>{const e=window.scrollY;document.documentElement.style.setProperty("--background-scroll-y",`${e*.16}px`),parallaxShapes.forEach(t=>{const n=Number(t.dataset.speed),s=Number(t.dataset.rotation);t.style.transform=`translate3d(0, ${e*n}px, 0) rotate(${e*s}deg)`}),parallaxFramePending=!1};window.addEventListener("scroll",()=>{parallaxFramePending||(window.requestAnimationFrame(updateParallax),parallaxFramePending=!0)},{passive:!0}),updateParallax(),document.querySelectorAll("[data-theme-toggle]").forEach(e=>{e.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=e,localStorage.setItem("ledger-theme",e),document.querySelectorAll("[data-theme-label]").forEach(t=>t.textContent=e==="dark"?"Lite":"Dark")})})</script></body></html>
+classification mistake.</p>
+<h2 id="what-i-have-learned-so-far">What I have learned so far</h2>
+<p>The main lesson is that a personal assistant should best be tasked with things you&rsquo;re too lazy to do. In fact, this blog post is a product of me asking the agent to interview me, about itself then write a markdown file for me to review. How crazy is that ?</p>
+<h4 id="lesson-1">Lesson 1</h4>
+<p>Like any software product this also is an intersection of concerns, and understanding where boundaries meet (which kept moving, a lot of times). The rest is orchestration, and cohesive response to any random request. It&rsquo;s vibe-coded, and although reviewed by multiple models it may lack finesse if it was hand coded by a seasoned Python dev. I&rsquo;ve treated the development process as an MVP, and as if I&rsquo;m working for a startup. If I started from scratch, I&rsquo;d probably utilize PRD&rsquo;s and more granular commits.</p>
+<h4 id="lesson-2">Lesson 2</h4>
+<p>With a background in UI engineering I&rsquo;ve long learned to expect the unexpected from users. Of course we try and guide, but they can do anything in any order. So I&rsquo;m testing the application as an average Joe, then identify what parts needs hardening. Sometimes over hardening a system prompt results in an unresponsive agent, or misclassified intent.</p>
+<h4 id="lesson-3">Lesson 3</h4>
+<p>AI-assisted coding changes the economics of experimentation. Claude and Codex made it possible for me to explore far more ideas than I would have implemented manually. That does not remove the need for judgment, or good architecture. It makes judgment more important, because it becomes
+easy to create ten plausible abstractions before discovering that the original assumption was wrong. LLM&rsquo;s are calibrated to affirm and validate their users, including our misconceptions and poor understanding. This can amplify bad patterns, security issues, and scalability.</p>
+<h2 id="future-plans">Future plans</h2>
+<p>I really like upcycling, and I&rsquo;ve got a lot of discarded hardware enclosures that I want to utilize. I&rsquo;m currently in the process of identifying a list of parts, so that I can build network attached microphone/speaker satellites to access the assistant from different rooms in my house. If possible, wakeword detection and speech recording could be offloaded to these as well as extend the abilities with proximity sensors, temperature and humidity readings from different rooms, and even play some music from my Spotify.</p>
+<p>Exciting stuff, but I need to get a solder gun first!</p>
+</div>
+  </article>
+  <aside class="article-sidebar">
+    <div class="toc">
+      <p class="eyebrow">IN THIS ARTICLE</p><nav id="TableOfContents">
+  <ul>
+    <li><a href="#scope-creep">Scope creep</a></li>
+    <li><a href="#the-hardware-constraint-is-part-of-the-design">The hardware constraint is part of the design</a>
+      <ul>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#backend-comparison">Backend comparison</a></li>
+        <li><a href="#relative-results">Relative results</a></li>
+      </ul>
+    </li>
+    <li><a href="#task-delegation-for-models">Task delegation for models</a></li>
+    <li><a href="#skills-vs-tools">Skills vs tools</a></li>
+    <li><a href="#connectors">Connectors</a></li>
+    <li><a href="#long-term-and-short-term-memory">Long-term and short-term memory</a></li>
+    <li><a href="#voice-interaction">Voice interaction</a></li>
+    <li><a href="#personas">Personas</a></li>
+    <li><a href="#useful-features-and-failed-experiments">Useful features and failed experiments</a></li>
+    <li><a href="#what-i-have-learned-so-far">What I have learned so far</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#future-plans">Future plans</a></li>
+  </ul>
+</nav>
+    </div>
+    <div class="article-tags">
+      <p class="eyebrow">CLASSIFICATION</p><a href="/%20/tags/local-ai/">#local-ai</a><a href="/%20/tags/ollama/">#ollama</a><a href="/%20/tags/lm-studio/">#lm-studio</a><a href="/%20/tags/llms/">#llms</a><a href="/%20/tags/python/">#python</a><a href="/%20/tags/vibe-coding/">#vibe-coding</a><a href="/%20/tags/personal-assistant/">#personal-assistant</a>
+    </div>
+  </aside>
+</div>
+
+  </main>
+  <footer class="container site-footer">
+    <div><strong>latent_shift</strong>
+      <p>Engineering notes, experimentation, and useful rabbit holes.</p>
+    </div>
+    <div class="footer-links">Gokhan Demirtas <span>© 2026</span></div>
+  </footer>
+  <script>
+    const parallaxShapes = document.querySelectorAll("[data-parallax-shape]");
+    let parallaxFramePending = false;
+
+    const updateParallax = () => {
+      const scrollY = window.scrollY;
+      document.documentElement.style.setProperty("--background-scroll-y", `${scrollY * 0.16}px`);
+      parallaxShapes.forEach((shape) => {
+        const speed = Number(shape.dataset.speed);
+        const rotation = Number(shape.dataset.rotation);
+        shape.style.transform = `translate3d(0, ${scrollY * speed}px, 0) rotate(${scrollY * rotation}deg)`;
+      });
+      parallaxFramePending = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!parallaxFramePending) {
+        window.requestAnimationFrame(updateParallax);
+        parallaxFramePending = true;
+      }
+    }, { passive: true });
+
+    updateParallax();
+
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      button.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem("ledger-theme", next);
+        document.querySelectorAll("[data-theme-label]").forEach((label) => label.textContent = next === "dark" ? "Lite" : "Dark");
+      });
+    });
+  </script>
+</body>
+
+</html>

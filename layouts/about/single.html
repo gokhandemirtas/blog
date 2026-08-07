@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="article-shell about-shell">
+  <article class="post">
+    <header class="post-header">
+      <p class="eyebrow">PROFILE · WORK HISTORY</p>
+      <h1>{{ .Title }}</h1>
+      <p class="post-description">{{ .Description }}</p>
+      <div class="article-meta">
+        <span>COMPANIES: 27</span>
+        <span>STATUS: <b class="live">ARCHIVED</b></span>
+      </div>
+    </header>
+    <div class="post-content">{{ .Content }}</div>
+  </article>
+  <aside class="article-sidebar">
+    <div class="toc">
+      <p class="eyebrow">IN THIS ARTICLE</p>{{ .TableOfContents }}
+    </div>
+  </aside>
+</div>
+{{ end }}

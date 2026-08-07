@@ -1,0 +1,17 @@
+{{- $url := .Get "url" -}}
+{{- $name := .Get "name" | default "Project repository" -}}
+{{- $description := .Get "description" | default "Browse the source code and project history." -}}
+
+<aside class="repository-card">
+  <div class="repository-card-icon" aria-hidden="true">
+    {{ partial "icons/icon" (dict "vendor" "lucide" "name" "git-branch" "size" "1.25em") }}
+  </div>
+  <div class="repository-card-content">
+    <p class="eyebrow">SOURCE_CODE</p>
+    <strong>{{ $name }}</strong>
+    <p>{{ $description }}</p>
+  </div>
+  <a class="repository-card-link" href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+    VIEW_REPOSITORY {{ partial "icons/icon" (dict "vendor" "lucide" "name" "move-up-right" "size" "1em") }}
+  </a>
+</aside>

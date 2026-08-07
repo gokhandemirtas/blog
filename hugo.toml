@@ -1,0 +1,30 @@
+baseURL = 'http://localhost:1313/'
+defaultContentLanguage = 'en'
+title = 'latent_shift'
+
+[languages.en]
+  locale = 'en-gb'
+
+[params]
+  description = 'Engineering notes, experimentation, and useful rabbit holes.'
+  author = 'Gokhan Demirtas'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+
+[[menus.main]]
+  name = 'Blog'
+  pageRef = '/posts'
+  weight = 20
+
+[[module.imports]]
+  path="github.com/hugomods/icons/vendors/devicons"
+
+[[module.imports]]
+  path="github.com/hugomods/icons/vendors/lucide"

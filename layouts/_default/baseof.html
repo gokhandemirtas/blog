@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default " en-GB" }}" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .Title }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
+  <meta name="description" content="{{ site.Params.description }}">
+  <meta name="theme-color" content="#f5f3ef">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="{{ "svg/octo.svg" | relURL }}">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  <script>
+    (() => {
+      const saved = localStorage.getItem('ledger-theme');
+      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = saved || preferred;
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="ambient-shapes" aria-hidden="true">
+    <span class="ambient-shape ambient-shape--sitar" data-parallax-shape data-speed="0.08" data-rotation="0.035"></span>
+    <span class="ambient-shape ambient-shape--plus" data-parallax-shape data-speed="-0.14"
+      data-rotation="-0.055"></span>
+    <span class="ambient-shape ambient-shape--semi" data-parallax-shape data-speed="0.2" data-rotation="0.08"></span>
+    <span class="ambient-shape ambient-shape--sitar-secondary" data-parallax-shape data-speed="-0.1"
+      data-rotation="0.045"></span>
+    <span class="ambient-shape ambient-shape--plus-secondary" data-parallax-shape data-speed="0.16"
+      data-rotation="-0.065"></span>
+    <span class="ambient-shape ambient-shape--semi-secondary" data-parallax-shape data-speed="-0.22"
+      data-rotation="0.09"></span>
+    <span class="ambient-shape ambient-shape--roto" data-parallax-shape data-speed="0.12" data-rotation="-0.075"></span>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ site.Home.RelPermalink }}">
+        <span class="brand-logo" aria-hidden="true"></span>
+        <span>{{ site.Title }}</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="{{ site.Home.RelPermalink }}">Home</a>
+        <a href="{{ "posts/" | relURL }}">Blog</a>
+        <a href="{{ "about/" | relURL }}">About</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
+            class="theme-icon" aria-hidden="true"><span data-theme-moon>{{ partial "icons/icon" (dict "vendor" "lucide"
+              "name" "moon" "size" "1em") }}</span><span data-theme-sun>{{ partial "icons/icon" (dict "vendor" "lucide"
+              "name" "sun" "size" "1em") }}</span></span><span data-theme-label>Dark</span></button>
+      </nav>
+      <button class="mobile-theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
+          class="theme-icon" aria-hidden="true"><span data-theme-moon>{{ partial "icons/icon" (dict "vendor" "lucide"
+            "name" "moon" "size" "1em") }}</span><span data-theme-sun>{{ partial "icons/icon" (dict "vendor" "lucide"
+            "name" "sun" "size" "1em") }}</span></span></button>
+    </div>
+  </header>
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="container site-footer">
+    <div><strong>{{ site.Title }}</strong>
+      <p>{{ site.Params.description }}</p>
+    </div>
+    <div class="footer-links">Gokhan Demirtas <span>© {{ now.Year }}</span></div>
+  </footer>
+  <script>
+    const parallaxShapes = document.querySelectorAll("[data-parallax-shape]");
+    let parallaxFramePending = false;
+
+    const updateParallax = () => {
+      const scrollY = window.scrollY;
+      document.documentElement.style.setProperty("--background-scroll-y", `${scrollY * 0.16}px`);
+      parallaxShapes.forEach((shape) => {
+        const speed = Number(shape.dataset.speed);
+        const rotation = Number(shape.dataset.rotation);
+        shape.style.transform = `translate3d(0, ${scrollY * speed}px, 0) rotate(${scrollY * rotation}deg)`;
+      });
+      parallaxFramePending = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!parallaxFramePending) {
+        window.requestAnimationFrame(updateParallax);
+        parallaxFramePending = true;
+      }
+    }, { passive: true });
+
+    updateParallax();
+
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      button.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem("ledger-theme", next);
+        document.querySelectorAll("[data-theme-label]").forEach((label) => label.textContent = next === "dark" ? "Lite" : "Dark");
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{{ define "main" }}
+{{ $allPosts := (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+{{ $entryNumber := 1 }}
+{{ range $index, $post := $allPosts }}
+  {{ if eq $post.RelPermalink $.RelPermalink }}{{ $entryNumber = add $index 1 }}{{ end }}
+{{ end }}
+<div class="article-shell">
+  <article class="post">
+    <header class="post-header">
+      <p class="eyebrow">EXP_{{ printf "%03d" $entryNumber }} · {{ .Date.Format "02 Jan 2006" }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="post-description">{{ .Description }}</p>
+      <div class="article-meta">
+        <span>READING_TIME: {{ .ReadingTime }} MIN</span>
+        <span>STATUS: <b class="live">PUBLISHED</b></span>
+        {{ with .Params.repository }}
+        <a class="article-repository" href="{{ . }}" target="_blank" rel="noopener noreferrer">REPOSITORY ↗</a>
+        {{ end }}
+      </div>
+    </header>
+    <div class="post-content">{{ .Content }}</div>
+  </article>
+  <aside class="article-sidebar">
+    <div class="toc">
+      <p class="eyebrow">IN THIS ARTICLE</p>{{ .TableOfContents }}
+    </div>
+    <div class="article-tags">
+      <p class="eyebrow">CLASSIFICATION</p>{{ range .Params.tags }}<a href="{{ (printf " /tags/%s/" (. | urlize)) |
+        relURL }}">#{{ . }}</a>{{ end }}
+    </div>
+  </aside>
+</div>
+{{ end }}

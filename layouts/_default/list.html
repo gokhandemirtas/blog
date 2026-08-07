@@ -1,0 +1,81 @@
+{{ define "main" }}
+{{ $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+{{ if .IsHome }}
+<section class="hero">
+  <div class="status-label">SYSTEM_STATUS: OPERATIONAL</div>
+  <h1>LATENT_<span>SHIFT</span></h1>
+  <p>Journal of learning by doing, local AI experiments, and engineering notes.</p>
+</section>
+<div class="home-grid">
+  <div class="main-column">
+    {{ with index $posts 0 }}
+    <section class="section-block">
+      <div class="section-heading">
+        <h2>CURRENT_FOCUS</h2><span>PRIORITY: HIGH</span>
+      </div>
+      <a class="feature-card" href="{{ .RelPermalink }}">
+        <div class="feature-index">EXP_001</div>
+        <div class="feature-copy">
+          <p class="eyebrow">{{ .Date.Format "2006.01.02" }} · {{ .ReadingTime }} MIN READ</p>
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Description | default (.Summary | plainify | truncate 220) }}</p><span class="text-link">READ_FULL_LOG
+            →</span>
+        </div>
+      </a>
+    </section>
+    {{ end }}
+    <section class="section-block">
+      <div class="section-heading">
+        <h2>LATEST_ENTRIES</h2><a href="{{ "posts/" | relURL }}">VIEW_ALL_LOGS →</a>
+      </div>
+      <div class="post-list">
+        {{ range $index, $post := $posts }}
+        <a class="post-card" href="{{ .RelPermalink }}"><span class="entry-number">EXP_{{ printf "%03d" (add $index 1) }}</span><span class="post-card-main"><strong>{{ .Title }}</strong><span class="tag-row">{{ range
+              .Params.tags }}<span>#{{ . }}</span>{{ end }}</span></span><span class="post-card-meta">{{ .Date.Format
+            "2006-01-02" }}<br>{{ .ReadingTime }} MIN</span></a>
+        {{ end }}
+      </div>
+    </section>
+  </div>
+  <aside class="sidebar">
+    <section class="section-block classification-section">
+      <div class="section-heading">
+        <h2>CLASSIFICATION</h2>
+      </div>
+      <div class="classification-list">{{ range $name, $taxonomy := site.Taxonomies.tags }}<a href="{{ (printf "/tags/%s/" ($name | urlize)) | relURL }}"><span>/root/{{ $name }}</span><span>({{ $taxonomy.Count }})</span></a>{{ end }}</div>
+    </section>
+    <section class="section-block">
+      <div class="section-heading">
+        <h2>ACTIVITY_LOG</h2>
+      </div>
+      {{ $months := slice 1 2 3 4 5 6 7 8 9 10 11 12 }}
+      {{ $maxActivity := 1 }}
+      {{ range $months }}
+      {{ $activity := len (where $posts "Date.Month" .) }}
+      {{ if gt $activity $maxActivity }}{{ $maxActivity = $activity }}{{ end }}
+      {{ end }}
+      <div class="activity-bars">{{ range $months }}{{ $activity := len (where $posts "Date.Month" .) }}<i
+          style="height: {{ if gt $activity 0 }}{{ div (mul $activity 100) $maxActivity }}{{ else }}0{{ end }}%"
+          title="{{ $activity }} log{{ if ne $activity 1 }}s{{ end }}"></i>{{ end }}</div>
+      <div class="activity-labels"><span>JAN</span><span>JUN</span><span>DEC</span></div>
+    </section>
+    <section class="metrics">
+      <p>SYSTEM METRICS</p>
+      <div><span>UPTIME</span><strong>99.98%</strong></div>
+      <div><span>INDEX_SIZE</span><strong>{{ len $posts }} LOGS</strong></div>
+      <div><span>STATUS</span><strong class="live">ONLINE</strong></div>
+    </section>
+  </aside>
+</div>
+{{ else }}
+<section class="archive-heading">
+  <p class="eyebrow">SYSTEM_DIRECTORY / ARCHIVE</p>
+  <h1>{{ .Title }}</h1>{{ .Content }}
+</section>
+<div class="post-list archive-list">{{ range $index, $post := .Pages.ByDate.Reverse }}<a class="post-card"
+    href="{{ $post.RelPermalink }}"><span class="entry-number">EXP_{{ printf "%03d" (add $index 1) }}</span><span
+      class="post-card-main"><strong>{{ .Title }}</strong><span class="tag-row">{{ range .Params.tags }}<span>#{{ .
+          }}</span>{{ end }}</span></span><span class="post-card-meta">{{ .Date.Format "2006-01-02" }}<br>{{
+      .ReadingTime }} MIN</span></a>{{ end }}</div>
+{{ end }}
+{{ end }}

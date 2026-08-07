@@ -3,6 +3,7 @@ title: "JeanClawd: Friendly neighbourhood AI"
 description: "Reflections about building a local AI assistant"
 date: 2026-07-29
 tags: [local-ai, ollama, lm-studio, llms, python, vibe-coding, personal-assistant]
+body_class: jeanclawd
 draft: false
 ---
 

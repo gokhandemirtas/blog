@@ -18,7 +18,7 @@
 				<link>http://localhost:1313/posts/stitch-codex/</link>
 				<pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/posts/stitch-codex/</guid>
-				<description>&lt;p&gt;I wanted a small personal blog: a simple static engine, a handful of pages, and a design that felt more deliberate than a default theme. The brief was intentionally short. I asked for a home page, a blog listing, an about page, and individual posts, with a visual language that would make the site feel like mine. I wanted a particular look and feel, which is coined as Synthetic Biome design language.&lt;/p&gt;</description>
+				<description>&lt;p&gt;I usually design my own stuff, but being the harsh critic I am it takes ages, then I get tired. I&amp;rsquo;ve been wanting to try &lt;a href=&#34;https://stitch.withgoogle.com/&#34;&gt;Google Stitch&lt;/a&gt; for a while, and I wanted to get my blog up and running so I opted for Hugo. Instead of using a default template, I provided Codex a brief for a particular look and feel, which is coined as Synthetic Biome design language.&lt;/p&gt;&#xA;&lt;p&gt;Stitch uses Gemini Flash powering it&amp;rsquo;s agent, which provides a conversational bot and a work bench with multiple pages that are connected to the history of interactions. Stitch uses your feedback to iterate on the design, typography, and even generate light / dark mode and responsive layout options. It keeps a history of all your projects should you want to revisit. To be honest, I found the process organic and intuitive.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Schmarchive: A photo organizer</title>

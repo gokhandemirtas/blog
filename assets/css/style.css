@@ -126,6 +126,16 @@ body>* {
   mask: url("../svg/roto.svg") center / contain no-repeat;
 }
 
+.ambient-shape--jeanclawd {
+  top: 2vh;
+  right: 5vw;
+  width: clamp(280px, 60vw, 760px);
+  height: clamp(220px, 46vw, 580px);
+  aspect-ratio: auto;
+  background: url("/images/yngc.png") center / contain no-repeat;
+  opacity: .34;
+}
+
 .ambient-shape--sitar {
   top: 32vh;
   left: -7vw;

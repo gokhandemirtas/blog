@@ -24,7 +24,7 @@
   </script>
 </head>
 
-<body>
+<body class="{{ with .Params.body_class }}page-{{ . }}{{ end }}">
   <div class="ambient-shapes" aria-hidden="true">
     <span class="ambient-shape ambient-shape--sitar" data-parallax-shape data-speed="0.08" data-rotation="0.035"></span>
     <span class="ambient-shape ambient-shape--plus" data-parallax-shape data-speed="-0.14"
@@ -37,6 +37,10 @@
     <span class="ambient-shape ambient-shape--semi-secondary" data-parallax-shape data-speed="-0.22"
       data-rotation="0.09"></span>
     <span class="ambient-shape ambient-shape--roto" data-parallax-shape data-speed="0.12" data-rotation="-0.075"></span>
+    {{ if eq .Params.body_class "jeanclawd" }}
+    <span class="ambient-shape ambient-shape--jeanclawd" data-parallax-shape data-speed="0.08"
+      data-rotation="0.035" aria-hidden="true"></span>
+    {{ end }}
   </div>
   <header class="site-header">
     <div class="container header-inner">

@@ -6,7 +6,7 @@ tags: [local-ai, ollama, lm-studio, llms, python, vibe-coding, personal-assistan
 draft: false
 ---
 
-{{< repository-link url="https://github.com/gokhandemirtas/schmarchive" name="Schmarchive" description="Browse the source code and documentation." >}}
+{{< repository-link url="https://github.com/gokhandemirtas/jeanclawd" name="JeanClawd" description="Browse the source code and documentation." >}}
 
 I started JeanClawd because I wanted to find out how far “vibe coding” could take me.
 

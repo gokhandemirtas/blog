@@ -18,7 +18,7 @@
 				<link>http://localhost:1313/posts/stitch-codex/</link>
 				<pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/posts/stitch-codex/</guid>
-				<description>&lt;p&gt;I wanted a small personal blog: a simple static engine, a handful of pages, and a design that felt more deliberate than a default theme. The brief was intentionally short. I asked for a home page, a blog listing, an about page, and individual posts, with a visual language that would make the site feel like mine.&lt;/p&gt;&#xA;&lt;h2 id=&#34;starting-with-a-brief&#34;&gt;Starting with a brief&lt;/h2&gt;&#xA;&lt;p&gt;I gave the brief to Codex and connected it to Google Stitch through the Model Context Protocol (MCP). Stitch is designed to turn natural-language product ideas into high-fidelity interfaces, while MCP gives a coding agent a way to retrieve the resulting design context rather than treating the design as a screenshot to imitate.&lt;/p&gt;</description>
+				<description>&lt;p&gt;I wanted a small personal blog: a simple static engine, a handful of pages, and a design that felt more deliberate than a default theme. The brief was intentionally short. I asked for a home page, a blog listing, an about page, and individual posts, with a visual language that would make the site feel like mine. I wanted a particular look and feel, which is coined as Synthetic Biome design language.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

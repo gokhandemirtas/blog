@@ -1,171 +1,40 @@
-<!doctype html>
-<html lang="en-gb" data-theme="light">
-
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Schmarchive: A photo organizer · latent_shift</title>
-  <meta name="description" content="Engineering notes, experimentation, and useful rabbit holes.">
-  <meta name="theme-color" content="#f5f3ef">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/svg+xml" href="/svg/octo.svg">
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/style.min.371cf42665e805d44fea172359c6d0c4693db391918e5378f013ebbf39d0883c.css">
-  <script>
-    (() => {
-      const saved = localStorage.getItem('ledger-theme');
-      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      document.documentElement.dataset.theme = saved || preferred;
-    })();
-  </script>
-</head>
-
-<body>
-  <div class="ambient-shapes" aria-hidden="true">
-    <span class="ambient-shape ambient-shape--sitar" data-parallax-shape data-speed="0.08" data-rotation="0.035"></span>
-    <span class="ambient-shape ambient-shape--plus" data-parallax-shape data-speed="-0.14"
-      data-rotation="-0.055"></span>
-    <span class="ambient-shape ambient-shape--semi" data-parallax-shape data-speed="0.2" data-rotation="0.08"></span>
-    <span class="ambient-shape ambient-shape--sitar-secondary" data-parallax-shape data-speed="-0.1"
-      data-rotation="0.045"></span>
-    <span class="ambient-shape ambient-shape--plus-secondary" data-parallax-shape data-speed="0.16"
-      data-rotation="-0.065"></span>
-    <span class="ambient-shape ambient-shape--semi-secondary" data-parallax-shape data-speed="-0.22"
-      data-rotation="0.09"></span>
-    <span class="ambient-shape ambient-shape--roto" data-parallax-shape data-speed="0.12" data-rotation="-0.075"></span>
-  </div>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/">
-        <span class="brand-logo" aria-hidden="true"></span>
-        <span>latent_shift</span>
-      </a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/posts/">Blog</a>
-        <a href="/about/">About</a>
-        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
-            class="theme-icon" aria-hidden="true"><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-</svg>
-</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="12" cy="12" r="4" />
-  <path d="M12 2v2" />
-  <path d="M12 20v2" />
-  <path d="m4.93 4.93 1.41 1.41" />
-  <path d="m17.66 17.66 1.41 1.41" />
-  <path d="M2 12h2" />
-  <path d="M20 12h2" />
-  <path d="m6.34 17.66-1.41 1.41" />
-  <path d="m19.07 4.93-1.41 1.41" />
-</svg>
-</span></span><span data-theme-label>Dark</span></button>
-      </nav>
-      <button class="mobile-theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle><span
-          class="theme-icon" aria-hidden="true"><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-</svg>
-</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="12" cy="12" r="4" />
-  <path d="M12 2v2" />
-  <path d="M12 20v2" />
-  <path d="m4.93 4.93 1.41 1.41" />
-  <path d="m17.66 17.66 1.41 1.41" />
-  <path d="M2 12h2" />
-  <path d="M20 12h2" />
-  <path d="m6.34 17.66-1.41 1.41" />
-  <path d="m19.07 4.93-1.41 1.41" />
-</svg>
-</span></span></button>
-    </div>
-  </header>
-  <main class="container">
-    
-
-
-
-  
-
-  
-
-  
-
-<div class="article-shell">
-  <article class="post">
-    <header class="post-header">
-      <p class="eyebrow">EXP_002 · 31 Jul 2026</p>
-      <h1>Schmarchive: A photo organizer</h1>
-      <p class="post-description">Building a local AI powered tool for fixing my photo archive</p>
-      <div class="article-meta">
-        <span>READING_TIME: 3 MIN</span>
-        <span>STATUS: <b class="live">PUBLISHED</b></span>
-        
-      </div>
-    </header>
-    <div class="post-content"><aside class="repository-card">
-  <div class="repository-card-icon" aria-hidden="true">
-    <svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1.25em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1.25em" xmlns="http://www.w3.org/2000/svg">
-  <line x1="6" x2="6" y1="3" y2="15" />
-  <circle cx="18" cy="6" r="3" />
-  <circle cx="6" cy="18" r="3" />
-  <path d="M18 9a9 9 0 0 1-9 9" />
-</svg>
-
-  </div>
-  <div class="repository-card-content">
-    <p class="eyebrow">SOURCE_CODE</p>
-    <strong>Schmarchive</strong>
-    <p>Browse the source code and documentation.</p>
-  </div>
-  <a class="repository-card-link" href="https://github.com/gokhandemirtas/schmarchive" target="_blank" rel="noopener noreferrer">
-    VIEW_REPOSITORY <svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
-  <path d="M13 5H19V11" />
-  <path d="M19 5L5 19" />
-</svg>
-
-  </a>
-</aside>
-
-<p>I started Schmarchive because my photo library has been steadily growing by me dumping stuff from every phone, camera, backup, and backups of backups on a drive. And I kept procrastinating and never organized it. There is a particular despair instilled by looking at a filename like
+<!doctype html><html lang=en-gb data-theme=light><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Schmarchive: A photo organizer · latent_shift</title><meta name=description content="Engineering notes, experimentation, and useful rabbit holes."><meta name=theme-color content="#f5f3ef"><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=icon type=image/svg+xml href=/blog/svg/octo.svg><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel=stylesheet><link rel=stylesheet href=/blog/css/style.min.b1170fc161f53a69d37db8965f1d389f26010c0d41bda97ad8e26a21f6c6deb1.css><script>(()=>{const e=localStorage.getItem("ledger-theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=e||t})()</script></head><body><div class=ambient-shapes aria-hidden=true><span class="ambient-shape ambient-shape--sitar" data-parallax-shape data-speed=0.08 data-rotation=0.035></span>
+<span class="ambient-shape ambient-shape--plus" data-parallax-shape data-speed=-0.14 data-rotation=-0.055></span>
+<span class="ambient-shape ambient-shape--semi" data-parallax-shape data-speed=0.2 data-rotation=0.08></span>
+<span class="ambient-shape ambient-shape--sitar-secondary" data-parallax-shape data-speed=-0.1 data-rotation=0.045></span>
+<span class="ambient-shape ambient-shape--plus-secondary" data-parallax-shape data-speed=0.16 data-rotation=-0.065></span>
+<span class="ambient-shape ambient-shape--semi-secondary" data-parallax-shape data-speed=-0.22 data-rotation=0.09></span>
+<span class="ambient-shape ambient-shape--roto" data-parallax-shape data-speed=0.12 data-rotation=-0.075></span></div><header class=site-header><div class="container header-inner"><a class=brand href=/blog/><span class=brand-logo aria-hidden=true></span>
+<span>latent_shift</span></a><nav class=main-nav aria-label="Main navigation"><a href=/blog/>Home</a>
+<a href=/blog/posts/>Blog</a>
+<a href=/blog/about/>About</a>
+<button class=theme-toggle type=button aria-label="Toggle dark mode" data-theme-toggle><span class=theme-icon aria-hidden=true><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>
+</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+</span></span><span data-theme-label>Dark</span></button></nav><button class=mobile-theme-toggle type=button aria-label="Toggle dark mode" data-theme-toggle><span class=theme-icon aria-hidden=true><span data-theme-moon><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>
+</span><span data-theme-sun><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span></span></button></div></header><main class=container><div class=article-shell><article class=post><header class=post-header><p class=eyebrow>EXP_002 · 31 Jul 2026</p><h1>Schmarchive: A photo organizer</h1><p class=post-description>Building a local AI powered tool for fixing my photo archive</p><div class=article-meta><span>READING_TIME: 3 MIN</span>
+<span>STATUS: <b class=live>PUBLISHED</b></span></div></header><div class=post-content><aside class=repository-card><div class=repository-card-icon aria-hidden=true><svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1.25em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1.25em"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg></div><div class=repository-card-content><p class=eyebrow>SOURCE_CODE</p><strong>Schmarchive</strong><p>Browse the source code and documentation.</p></div><a class=repository-card-link href=https://github.com/gokhandemirtas/schmarchive target=_blank rel="noopener noreferrer">VIEW_REPOSITORY <svg aria-hidden="true" class="hi-svg-inline" fill="none" height="1em" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="1em"><path d="M13 5h6v6"/><path d="M19 5 5 19"/></svg></a></aside><p>I started Schmarchive because my photo library has been steadily growing by me dumping stuff from every phone, camera, backup, and backups of backups on a drive. And I kept procrastinating and never organized it. There is a particular despair instilled by looking at a filename like
 <code>IMG_20250703_143012.jpg</code>. It tells me when the camera thinks the picture was
 taken, but not where I was, what I was looking at, or whether I already have
 four almost identical copies somewhere else. I wanted a small tool that could
-weed out unwanted, redundant and pointless photos.</p>
-<p>Enter Schmarchive: a command-line archive organizer that non-destructively does that.
+weed out unwanted, redundant and pointless photos.</p><p>Enter Schmarchive: a command-line archive organizer that non-destructively does that.
 It can rename pictures from metadata stored as EXIF dates and GPS, reverse-geocode locations,
 and use that to scaffold a folder structure, find duplicate or near-
 duplicate images. A local vision model can then help decide which repeated
 shot is best, sort photos into broad categories, or find every image containing
-something like a white cat.</p>
-<h2 id="the-unglamorous-bits-are-the-interesting-bits">The unglamorous bits are the interesting bits</h2>
-<p>The first version was mostly metadata and file operations. That is still the
+something like a white cat.</p><h2 id=the-unglamorous-bits-are-the-interesting-bits>The unglamorous bits are the interesting bits</h2><p>The first version was mostly metadata and file operations. That is still the
 heart of it. Before asking a model anything, Schmarchive extracts file
 hash for comparing exact copies and a perceptual hash for images that look similar. Only
 the candidate groups are sent to the vision endpoint. The model confirms the
 group and picks the sharpest, best-exposed, best-composed image. The remaining
-files are renamed with a duplicate suffix before they can be moved aside.</p>
-<p>That intermediate step matters. File management is one of those areas where a
+files are renamed with a duplicate suffix before they can be moved aside.</p><p>That intermediate step matters. File management is one of those areas where a
 confident wrong answer is worse than no answer. I would rather see
 <code>photo__near_dupe.jpg</code> and decide what to do than discover that an assistant
-quietly deleted a memory.</p>
-<h2 id="geotagging">Geotagging</h2>
-<p>Geotagging has a similar practical compromise. Calling a free reverse-geocoding API (Nominatim)
+quietly deleted a memory.</p><h2 id=geotagging>Geotagging</h2><p>Geotagging has a similar practical compromise. Calling a free reverse-geocoding API (Nominatim)
 once per image would be wasteful and impolite, so photos with nearby coordinates are first
-clustered by a configurable distance and one result is cached for the group. The file gets a name such as <code>cordoba-2025-03-24.jpg</code>, while the geocoding work is kept in a local <code>locations.csv</code> cache for later runs.</p>
-<h2 id="why-local-ai">Why local AI?</h2>
-<p>I wanted the ability to pluck photos by subject, e.g. &ldquo;a white cat&rdquo;, which prompts the vision model to return Detected / Not detected for that subject.
-If no subject is provided, it can also do it by a preset list of generic categories e.g. <code>nature, cityscape, nightshot</code> etc. which can classify photos without supervision.</p>
-<p>Simple renaming, copying, moving, as well as any other deterministic action is done programmatically.</p>
-<h2 id="other-goodies">Other goodies</h2>
-<p>Metadata is inconsistently present, model can be wrong,
+clustered by a configurable distance and one result is cached for the group. The file gets a name such as <code>cordoba-2025-03-24.jpg</code>, while the geocoding work is kept in a local <code>locations.csv</code> cache for later runs.</p><h2 id=why-local-ai>Why local AI?</h2><p>I wanted the ability to pluck photos by subject, e.g. &ldquo;a white cat&rdquo;, which prompts the vision model to return Detected / Not detected for that subject.
+If no subject is provided, it can also do it by a preset list of generic categories e.g. <code>nature, cityscape, nightshot</code> etc. which can classify photos without supervision.</p><p>Simple renaming, copying, moving, as well as any other deterministic action is done programmatically.</p><h2 id=other-goodies>Other goodies</h2><p>Metadata is inconsistently present, model can be wrong,
 and my archive is full of old photos. But it solves a real problem for me:
-turning an overwhelming number of files into something I can enjoy.</p>
-<p>Here are the full list of commands you can run:</p>
-<pre tabindex="0"><code>  1. Geotag files — rename photos by location and date.
+turning an overwhelming number of files into something I can enjoy.</p><p>Here are the full list of commands you can run:</p><pre tabindex=0><code>  1. Geotag files — rename photos by location and date.
   2. Date-tag files — rename photos using capture dates.
   3. Deduplicate — find exact and near-duplicate images with hashes and AI verification.
   4. Move duplicates — move marked duplicates into a separate folder.
@@ -175,65 +44,4 @@ turning an overwhelming number of files into something I can enjoy.</p>
   8. Pluck images by subject — find and move images matching a description.
   9. Configure settings — change folders, model, API, thresholds, and related options.
   10. Process videos — geotag and organize videos by date and location.
-</code></pre></div>
-  </article>
-  <aside class="article-sidebar">
-    <div class="toc">
-      <p class="eyebrow">IN THIS ARTICLE</p><nav id="TableOfContents">
-  <ul>
-    <li><a href="#the-unglamorous-bits-are-the-interesting-bits">The unglamorous bits are the interesting bits</a></li>
-    <li><a href="#geotagging">Geotagging</a></li>
-    <li><a href="#why-local-ai">Why local AI?</a></li>
-    <li><a href="#other-goodies">Other goodies</a></li>
-  </ul>
-</nav>
-    </div>
-    <div class="article-tags">
-      <p class="eyebrow">CLASSIFICATION</p><a href="/%20/tags/photo-management/">#photo-management</a><a href="/%20/tags/local-ai/">#local-ai</a><a href="/%20/tags/python/">#python</a><a href="/%20/tags/computer-vision/">#computer-vision</a><a href="/%20/tags/metadata/">#metadata</a><a href="/%20/tags/vibe-coding/">#vibe-coding</a>
-    </div>
-  </aside>
-</div>
-
-  </main>
-  <footer class="container site-footer">
-    <div><strong>latent_shift</strong>
-      <p>Engineering notes, experimentation, and useful rabbit holes.</p>
-    </div>
-    <div class="footer-links">Gokhan Demirtas <span>© 2026</span></div>
-  </footer>
-  <script>
-    const parallaxShapes = document.querySelectorAll("[data-parallax-shape]");
-    let parallaxFramePending = false;
-
-    const updateParallax = () => {
-      const scrollY = window.scrollY;
-      document.documentElement.style.setProperty("--background-scroll-y", `${scrollY * 0.16}px`);
-      parallaxShapes.forEach((shape) => {
-        const speed = Number(shape.dataset.speed);
-        const rotation = Number(shape.dataset.rotation);
-        shape.style.transform = `translate3d(0, ${scrollY * speed}px, 0) rotate(${scrollY * rotation}deg)`;
-      });
-      parallaxFramePending = false;
-    };
-
-    window.addEventListener("scroll", () => {
-      if (!parallaxFramePending) {
-        window.requestAnimationFrame(updateParallax);
-        parallaxFramePending = true;
-      }
-    }, { passive: true });
-
-    updateParallax();
-
-    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
-      button.addEventListener('click', () => {
-        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-        document.documentElement.dataset.theme = next;
-        localStorage.setItem("ledger-theme", next);
-        document.querySelectorAll("[data-theme-label]").forEach((label) => label.textContent = next === "dark" ? "Lite" : "Dark");
-      });
-    });
-  </script>
-</body>
-
-</html>
+</code></pre></div></article><aside class=article-sidebar><div class=toc><p class=eyebrow>IN THIS ARTICLE</p><nav id=TableOfContents><ul><li><a href=#the-unglamorous-bits-are-the-interesting-bits>The unglamorous bits are the interesting bits</a></li><li><a href=#geotagging>Geotagging</a></li><li><a href=#why-local-ai>Why local AI?</a></li><li><a href=#other-goodies>Other goodies</a></li></ul></nav></div><div class=article-tags><p class=eyebrow>CLASSIFICATION</p><a href=/blog/%20/tags/photo-management/>#photo-management</a><a href=/blog/%20/tags/local-ai/>#local-ai</a><a href=/blog/%20/tags/python/>#python</a><a href=/blog/%20/tags/computer-vision/>#computer-vision</a><a href=/blog/%20/tags/metadata/>#metadata</a><a href=/blog/%20/tags/vibe-coding/>#vibe-coding</a></div></aside></div></main><footer class="container site-footer"><div><strong>latent_shift</strong><p>Engineering notes, experimentation, and useful rabbit holes.</p></div><div class=footer-links>Gokhan Demirtas <span>© 2026</span></div></footer><script>const parallaxShapes=document.querySelectorAll("[data-parallax-shape]");let parallaxFramePending=!1;const updateParallax=()=>{const e=window.scrollY;document.documentElement.style.setProperty("--background-scroll-y",`${e*.16}px`),parallaxShapes.forEach(t=>{const n=Number(t.dataset.speed),s=Number(t.dataset.rotation);t.style.transform=`translate3d(0, ${e*n}px, 0) rotate(${e*s}deg)`}),parallaxFramePending=!1};window.addEventListener("scroll",()=>{parallaxFramePending||(window.requestAnimationFrame(updateParallax),parallaxFramePending=!0)},{passive:!0}),updateParallax(),document.querySelectorAll("[data-theme-toggle]").forEach(e=>{e.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=e,localStorage.setItem("ledger-theme",e),document.querySelectorAll("[data-theme-label]").forEach(t=>t.textContent=e==="dark"?"Lite":"Dark")})})</script></body></html>

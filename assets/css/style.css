@@ -132,7 +132,7 @@ body>* {
   width: clamp(280px, 60vw, 760px);
   height: clamp(220px, 46vw, 580px);
   aspect-ratio: auto;
-  background: url("/images/yngc.png") center / contain no-repeat;
+  background: url("../images/yngc.png") center / contain no-repeat;
   opacity: .34;
 }
 

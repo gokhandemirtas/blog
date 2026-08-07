@@ -83,12 +83,12 @@ checkpoint at evaluation intervals. Past a certain number of passes, the loss ra
 
 ## Utilities
 
-Leveraging the excellent (Albumentations)[https://pypi.org/project/albumentations/] library, I was able to take a small sample set,
+Leveraging the excellent [Albumentations](https://pypi.org/project/albumentations) library, I was able to take a small sample set,
 generate a dozens of variations and provide a meaningfully large sample set around 10k from around 1000 images. I've used `nvidia-smi` to limit max voltage for the GPU, so it can stay cool during the training.
 The configuration should be scaled based on your particular hardware, but on an RTX3090 it usually takes about 2 hours. The resulting model identifies an image under 1 second on the same hardware.
 
 
-## Evaluation without flattering myself
+## Evaluation
 
 The test runner loads a checkpoint, performs inference for each image, parses the generated JSON
 and compares both `isDetected` and `product`. It continuously writes an HTML report with the total,

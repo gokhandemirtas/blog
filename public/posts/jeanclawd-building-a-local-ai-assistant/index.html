@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-gb" data-theme="light">
+<html lang="en" data-theme="light">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
@@ -14,7 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   
-  <link rel="stylesheet" href="/css/style.min.d2689c8e1cd7e63e9e163dc65e0a6ca38ce9a559aa7b596b8af3f8cec9e83da9.css">
+  <link rel="stylesheet" href="/css/style.min.dbf614aebe9face086ebcb71d65bd5df7eaa825c8688abc011b14d251a017d66.css">
   <script>
     (() => {
       const saved = localStorage.getItem('ledger-theme');
@@ -179,86 +179,86 @@ Earlier in the project I was hotswapping models, which proved detrimental as it 
 <h3 id="performance">Performance</h3>
 <p>Here are the <a href="https://github.com/CodeGeekR/benchmark-ai-tops">benchmark</a> results from the M1 Mac Studio used for this project:</p>
 <table>
-	<thead>
-			<tr>
-					<th>System component</th>
-					<th style="text-align: right">Result</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Operating system</td>
-					<td style="text-align: right">Darwin 25.1.0</td>
-			</tr>
-			<tr>
-					<td>Memory</td>
-					<td style="text-align: right">64.0 GB</td>
-			</tr>
-			<tr>
-					<td>CPU</td>
-					<td style="text-align: right">ARM · 10 physical / 10 logical cores</td>
-			</tr>
-			<tr>
-					<td>GPU</td>
-					<td style="text-align: right">Apple MPS · 24 cores</td>
-			</tr>
-			<tr>
-					<td>NPU</td>
-					<td style="text-align: right">Enabled</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>System component</th>
+          <th style="text-align: right">Result</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Operating system</td>
+          <td style="text-align: right">Darwin 25.1.0</td>
+      </tr>
+      <tr>
+          <td>Memory</td>
+          <td style="text-align: right">64.0 GB</td>
+      </tr>
+      <tr>
+          <td>CPU</td>
+          <td style="text-align: right">ARM · 10 physical / 10 logical cores</td>
+      </tr>
+      <tr>
+          <td>GPU</td>
+          <td style="text-align: right">Apple MPS · 24 cores</td>
+      </tr>
+      <tr>
+          <td>NPU</td>
+          <td style="text-align: right">Enabled</td>
+      </tr>
+  </tbody>
 </table>
 <table>
-	<thead>
-			<tr>
-					<th>Benchmark</th>
-					<th style="text-align: right">Result</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>CPU baseline (FP32)</td>
-					<td style="text-align: right">293.23 GFLOPS</td>
-			</tr>
-			<tr>
-					<td>GPU Metal (FP16)</td>
-					<td style="text-align: right">7.06 TOPS</td>
-			</tr>
-			<tr>
-					<td>NPU (FP16)</td>
-					<td style="text-align: right">10.72 TOPS</td>
-			</tr>
-			<tr>
-					<td>NPU (quantized W8A16)</td>
-					<td style="text-align: right">11.38 TOPS</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Benchmark</th>
+          <th style="text-align: right">Result</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CPU baseline (FP32)</td>
+          <td style="text-align: right">293.23 GFLOPS</td>
+      </tr>
+      <tr>
+          <td>GPU Metal (FP16)</td>
+          <td style="text-align: right">7.06 TOPS</td>
+      </tr>
+      <tr>
+          <td>NPU (FP16)</td>
+          <td style="text-align: right">10.72 TOPS</td>
+      </tr>
+      <tr>
+          <td>NPU (quantized W8A16)</td>
+          <td style="text-align: right">11.38 TOPS</td>
+      </tr>
+  </tbody>
 </table>
 <table>
-	<thead>
-			<tr>
-					<th>Technical performance report</th>
-					<th style="text-align: right">Result</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>CPU (general processing)</td>
-					<td style="text-align: right">293.23 GFLOPS</td>
-			</tr>
-			<tr>
-					<td>GPU (graphics / basic AI)</td>
-					<td style="text-align: right">7.06 TOPS</td>
-			</tr>
-			<tr>
-					<td>NPU (high-precision AI)</td>
-					<td style="text-align: right">10.72 TOPS</td>
-			</tr>
-			<tr>
-					<td>NPU (quantized W8A16)</td>
-					<td style="text-align: right">11.38 TOPS</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Technical performance report</th>
+          <th style="text-align: right">Result</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CPU (general processing)</td>
+          <td style="text-align: right">293.23 GFLOPS</td>
+      </tr>
+      <tr>
+          <td>GPU (graphics / basic AI)</td>
+          <td style="text-align: right">7.06 TOPS</td>
+      </tr>
+      <tr>
+          <td>NPU (high-precision AI)</td>
+          <td style="text-align: right">10.72 TOPS</td>
+      </tr>
+      <tr>
+          <td>NPU (quantized W8A16)</td>
+          <td style="text-align: right">11.38 TOPS</td>
+      </tr>
+  </tbody>
 </table>
 <p>The approximately 11.4 TOPS result represents roughly 50% of the theoretical peak
 reported by this benchmark. This is the maximum measured performance without data
@@ -267,34 +267,34 @@ trained model for data calibration.</p>
 <p>On this hardware, I am getting the following inference performance with LM Studio. These
 figures come from a small sample of live requests rather than a controlled benchmark.</p>
 <table>
-	<thead>
-			<tr>
-					<th>Model</th>
-					<th style="text-align: right">Requests</th>
-					<th style="text-align: right">Server generation</th>
-					<th style="text-align: right">Measured generation</th>
-					<th style="text-align: right">Average TTFT</th>
-					<th style="text-align: right">End-to-end throughput</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Qwen3 30B A3B Instruct 2507 (MLX)</td>
-					<td style="text-align: right">3</td>
-					<td style="text-align: right">50.02–58.28 tok/s</td>
-					<td style="text-align: right">51.49–75.08 tok/s</td>
-					<td style="text-align: right">2.24–4.99 s</td>
-					<td style="text-align: right">7.26–14.93 tok/s</td>
-			</tr>
-			<tr>
-					<td>Meta Llama 3.1 8B Instruct</td>
-					<td style="text-align: right">1</td>
-					<td style="text-align: right">58.85 tok/s</td>
-					<td style="text-align: right">80.09 tok/s</td>
-					<td style="text-align: right">7.62 s</td>
-					<td style="text-align: right">2.79 tok/s</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Model</th>
+          <th style="text-align: right">Requests</th>
+          <th style="text-align: right">Server generation</th>
+          <th style="text-align: right">Measured generation</th>
+          <th style="text-align: right">Average TTFT</th>
+          <th style="text-align: right">End-to-end throughput</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Qwen3 30B A3B Instruct 2507 (MLX)</td>
+          <td style="text-align: right">3</td>
+          <td style="text-align: right">50.02–58.28 tok/s</td>
+          <td style="text-align: right">51.49–75.08 tok/s</td>
+          <td style="text-align: right">2.24–4.99 s</td>
+          <td style="text-align: right">7.26–14.93 tok/s</td>
+      </tr>
+      <tr>
+          <td>Meta Llama 3.1 8B Instruct</td>
+          <td style="text-align: right">1</td>
+          <td style="text-align: right">58.85 tok/s</td>
+          <td style="text-align: right">80.09 tok/s</td>
+          <td style="text-align: right">7.62 s</td>
+          <td style="text-align: right">2.79 tok/s</td>
+      </tr>
+  </tbody>
 </table>
 <p>Across the three Qwen requests, the averages were approximately 55.37 tok/s server-side,
 64.96 tok/s as measured by the client, 3.09 seconds time to first token, and 10.26 tok/s
@@ -303,77 +303,77 @@ when the generated response is short.</p>
 <h3 id="backend-comparison">Backend comparison</h3>
 <p>These runs used Qwen3 8B Q4 K-M quantization with a 256-token output limit, resulted in negligible difference in speed.</p>
 <table>
-	<thead>
-			<tr>
-					<th>Backend</th>
-					<th>Model</th>
-					<th style="text-align: right">Median latency</th>
-					<th style="text-align: right">Median wall-clock rate</th>
-					<th style="text-align: right">Median decode rate</th>
-					<th style="text-align: right">Output tokens</th>
-					<th></th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Ollama</td>
-					<td><code>qwen3-8b-q4km</code></td>
-					<td style="text-align: right">6.767 s</td>
-					<td style="text-align: right">37.83 tok/s</td>
-					<td style="text-align: right">38.74 tok/s</td>
-					<td style="text-align: right">256</td>
-					<td></td>
-			</tr>
-			<tr>
-					<td>LM Studio</td>
-					<td><code>qwen/qwen3-8b</code></td>
-					<td style="text-align: right">6.766 s</td>
-					<td style="text-align: right">37.84 tok/s</td>
-					<td style="text-align: right">37.84 tok/s</td>
-					<td style="text-align: right">256</td>
-					<td></td>
-			</tr>
-			<tr>
-					<td>llama.cpp</td>
-					<td><code>Qwen3-8B-Q4_K_M.gguf</code></td>
-					<td style="text-align: right">6.695 s</td>
-					<td style="text-align: right">38.24 tok/s</td>
-					<td style="text-align: right">38.24 tok/s</td>
-					<td style="text-align: right">256</td>
-					<td></td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Backend</th>
+          <th>Model</th>
+          <th style="text-align: right">Median latency</th>
+          <th style="text-align: right">Median wall-clock rate</th>
+          <th style="text-align: right">Median decode rate</th>
+          <th style="text-align: right">Output tokens</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Ollama</td>
+          <td><code>qwen3-8b-q4km</code></td>
+          <td style="text-align: right">6.767 s</td>
+          <td style="text-align: right">37.83 tok/s</td>
+          <td style="text-align: right">38.74 tok/s</td>
+          <td style="text-align: right">256</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>LM Studio</td>
+          <td><code>qwen/qwen3-8b</code></td>
+          <td style="text-align: right">6.766 s</td>
+          <td style="text-align: right">37.84 tok/s</td>
+          <td style="text-align: right">37.84 tok/s</td>
+          <td style="text-align: right">256</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>llama.cpp</td>
+          <td><code>Qwen3-8B-Q4_K_M.gguf</code></td>
+          <td style="text-align: right">6.695 s</td>
+          <td style="text-align: right">38.24 tok/s</td>
+          <td style="text-align: right">38.24 tok/s</td>
+          <td style="text-align: right">256</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="relative-results">Relative results</h3>
 <table>
-	<thead>
-			<tr>
-					<th>Metric</th>
-					<th>Fastest</th>
-					<th style="text-align: right">Difference versus slowest</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Latency</td>
-					<td>llama.cpp</td>
-					<td style="text-align: right">1.05% faster than LM Studio</td>
-			</tr>
-			<tr>
-					<td>Wall-clock throughput</td>
-					<td>llama.cpp</td>
-					<td style="text-align: right">1.06% faster than LM Studio</td>
-			</tr>
-			<tr>
-					<td>Decode throughput</td>
-					<td>Ollama</td>
-					<td style="text-align: right">2.32% faster than LM Studio</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th>Fastest</th>
+          <th style="text-align: right">Difference versus slowest</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Latency</td>
+          <td>llama.cpp</td>
+          <td style="text-align: right">1.05% faster than LM Studio</td>
+      </tr>
+      <tr>
+          <td>Wall-clock throughput</td>
+          <td>llama.cpp</td>
+          <td style="text-align: right">1.06% faster than LM Studio</td>
+      </tr>
+      <tr>
+          <td>Decode throughput</td>
+          <td>Ollama</td>
+          <td style="text-align: right">2.32% faster than LM Studio</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="task-delegation-for-models">Task delegation for models</h2>
 <p>The current model arrangement is intentionally split:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>user request
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>user request
 </span></span><span style="display:flex;"><span>    │
 </span></span><span style="display:flex;"><span>    ├── intent model      → classify primary intent, route to skill
 </span></span><span style="display:flex;"><span>    ├── generalist model  → classify route intent, fire handler, return response

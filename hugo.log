@@ -1,0 +1,22 @@
+Watching for changes in /home/gokhan/Projects/blog/archetypes, /home/gokhan/Projects/blog/assets/css, /home/gokhan/Projects/blog/content/posts, /home/gokhan/Projects/blog/layouts/{_default,about,shortcodes}, /home/gokhan/Projects/blog/static/{images,svg}
+Watching for config changes in /home/gokhan/Projects/blog/hugo.toml, /home/gokhan/Projects/blog/go.mod
+Start building sites … 
+hugo v0.154.5+extended linux/amd64 BuildDate=2026-01-13T19:59:22Z VendorInfo=ubuntu:0.154.5-1
+
+
+                  │ EN 
+──────────────────┼────
+ Pages            │ 50 
+ Paginator pages  │  0 
+ Non-page files   │  0 
+ Static files     │  9 
+ Processed images │  0 
+ Aliases          │  0 
+ Cleaned          │  0 
+
+Built in 21 ms
+Environment: "development"
+Serving pages from disk
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1) 
+Press Ctrl+C to stop

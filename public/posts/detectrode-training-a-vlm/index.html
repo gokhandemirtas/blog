@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en-gb" data-theme="light">
+<html lang="en" data-theme="light">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Detectrode: Training a small vision model to recognise industrial products · latent_shift</title>
@@ -14,7 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   
-  <link rel="stylesheet" href="/css/style.min.85986c5b7d141d91bb0880951dc9cecdba30d37ed2d8dd36bbe5b5cbc6f012ac.css">
+  <link rel="stylesheet" href="/css/style.min.dbf614aebe9face086ebcb71d65bd5df7eaa825c8688abc011b14d251a017d66.css">
   <script>
     (() => {
       const saved = localStorage.getItem('ledger-theme');
@@ -117,9 +117,9 @@ to know when the photograph is not a product at all.</p>
 <p>This made the project more interesting than ordinary image classification. I did not only want
 a label. I wanted a small model that accepts an image and a question, then returns a predictable
 answer that another application can consume:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;isDetected&#34;</span>: <span style="color:#66d9ef">true</span>, <span style="color:#f92672">&#34;product&#34;</span>: <span style="color:#e6db74">&#34;Zombrella&#34;</span>}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;isDetected&#34;</span>: <span style="color:#66d9ef">true</span>, <span style="color:#f92672">&#34;product&#34;</span>: <span style="color:#e6db74">&#34;Zombrella&#34;</span>}
 </span></span></code></pre></div><p>For an unrelated image, the expected answer is:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;isDetected&#34;</span>: <span style="color:#66d9ef">false</span>, <span style="color:#f92672">&#34;product&#34;</span>: <span style="color:#e6db74">&#34;Unknown&#34;</span>}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;isDetected&#34;</span>: <span style="color:#66d9ef">false</span>, <span style="color:#f92672">&#34;product&#34;</span>: <span style="color:#e6db74">&#34;Unknown&#34;</span>}
 </span></span></code></pre></div><h2 id="why-nanovlm">Why nanoVLM</h2>
 <p>I used open source <a href="https://github.com/huggingface/nanoVLM">nanoVLM</a> to start the project.
 It is a deliberately small and readable vision-language model, which made it much more useful
@@ -162,10 +162,10 @@ speed for memory. That is a reasonable exchange when the alternative is an out-o
 <p>Training records validation loss, generated-token confidence and throughput, and saves a
 checkpoint at evaluation intervals. Past a certain number of passes, the loss ratio becomes negligible which means I can stop the training as subsequent runs will not improve quality further.</p>
 <h2 id="utilities">Utilities</h2>
-<p>Leveraging the excellent (Albumentations)[https://pypi.org/project/albumentations/] library, I was able to take a small sample set,
+<p>Leveraging the excellent <a href="https://pypi.org/project/albumentations">Albumentations</a> library, I was able to take a small sample set,
 generate a dozens of variations and provide a meaningfully large sample set around 10k from around 1000 images. I&rsquo;ve used <code>nvidia-smi</code> to limit max voltage for the GPU, so it can stay cool during the training.
 The configuration should be scaled based on your particular hardware, but on an RTX3090 it usually takes about 2 hours. The resulting model identifies an image under 1 second on the same hardware.</p>
-<h2 id="evaluation-without-flattering-myself">Evaluation without flattering myself</h2>
+<h2 id="evaluation">Evaluation</h2>
 <p>The test runner loads a checkpoint, performs inference for each image, parses the generated JSON
 and compares both <code>isDetected</code> and <code>product</code>. It continuously writes an HTML report with the total,
 pass rate, failures per label and individual predictions, so a long run still leaves useful
@@ -194,7 +194,7 @@ For narrow local AI projects, I increasingly think that is where most of the des
     <li><a href="#diversifying-the-dataset-is-challenging">Diversifying the dataset is challenging</a></li>
     <li><a href="#training-within-the-hardware-limit">Training within the hardware limit</a></li>
     <li><a href="#utilities">Utilities</a></li>
-    <li><a href="#evaluation-without-flattering-myself">Evaluation without flattering myself</a></li>
+    <li><a href="#evaluation">Evaluation</a></li>
     <li><a href="#what-i-learned">What I learned</a></li>
   </ul>
 </nav>

@@ -122,7 +122,7 @@ Completed a two-week assignment fixing cross-browser and responsive-layout bugs 
 
 ## Digital Propulsion
 
-**Director · Sep 2013 - 2020**
+**Director · Sep 2013 - Jan 2020**
 
 Moved from Dubai to set up my own company, where I delivered numerous short- and long-term projects as a contractor until 2020, as well as managed a small development team for one of my customers.
 

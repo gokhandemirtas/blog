@@ -4,13 +4,29 @@ description: A record of the teams, products, and companies I've worked with.
 layout: about
 ---
 
+I'm an AI-focused full-stack engineer with over 25 years of commercial experience building products for small and large organisations in multinational teams. I write about AI engineering experiments at this blog — everything here is hands-on work, not theory.
+
+## Independent projects
+
+### JeanClawd
+
+A fully local AI assistant built from scratch on personal hardware (M1 Mac Studio 64 GB + Ubuntu PC with RTX 3090). Features multi-model orchestration (Qwen3 30B A3B generalist, Llama 3.1 8B intent router, Qwen3-VL 4B vision), a three-layer memory system (LangMem + MongoDB semantic search), MCP server, voice I/O (Whisper STT + Supertonic TTS), ReAct research agents, and smart home, finance, and news connectors. Built with Python, LangChain, LangGraph, LangMem, Pydantic, Ollama, llama.cpp, MLX.
+
+### Schmarchive
+
+A CLI photo archive organiser using a local VLM for image classification and near-duplicate evaluation, perceptual hashing, EXIF/GPS metadata extraction, and Nominatim reverse geocoding. Non-destructive deduplication workflow. Built with Python.
+
+### Detectrode
+
+Industrial product recognition via small vision model fine-tuning. Fine-tuned a VLM on domain-specific imagery for accurate product detection in an industrial context. Built with nanoVLM and PyTorch.
+
 ## Railpen
 
-**Frontend developer · Oct 2021 - Mar 2026**
+**Frontend developer · Oct 2021 - Present**
 
-SME responsible for all front-office web applications, establishing UI/UX and frontend coding standards through a reusable theme, a shared Angular library, Azure Marketplace and VS Code extensions, and shared linting and formatting configuration.
+Primary engineer on an AI-augmented SDLC initiative (50% of role): built agents that actively scan ADO pipelines to validate Jira/PR/GitFlow adherence, surface stale repositories, detect vulnerabilities, and check code against Confluence standards. Agents run locally connecting to ADO, Jira, and Confluence, with automated pipeline trigger deployment in progress. Stack: Microsoft Foundry (Azure-hosted LLMs with custom system prompts), Copilot CLI.
 
-Notable projects included an IBOR app with real-time portfolio data and trade-order capabilities, Risk Management, Rebalance, and Data Quality frameworks. I was also involved in company-wide adoption of Microsoft Foundry and AI-powered solutions.
+Also SME for all front-office web applications, establishing UI/UX and frontend coding standards through a reusable theme, a shared Angular library, Azure Marketplace and VS Code extensions, and shared linting and formatting configuration. Notable projects: IBOR app with real-time portfolio data and trade-order capabilities; Risk Management, Rebalance, and Data Quality frameworks.
 
 ## LexisNexis / EG
 

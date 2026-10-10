@@ -30,7 +30,7 @@ Also SME for all front-office web applications, establishing UI/UX and frontend 
 
 ## LexisNexis / EG
 
-**Full-stack developer · Jun 2019 - Jul 2021**
+**Full-stack developer · Jun 2019 - Oct 2021**
 
 Worked on a commercial property valuation UI with rich formatting, document uploads, side-by-side comparisons, commenting, and market-data integration for report generation in Word and PDF. The product helped surveyors automate workflows that previously took months.
 
@@ -170,7 +170,7 @@ Worked as a remote contract frontend developer for FTI's clients, including New 
 
 ## Mana Digital
 
-**Flash / Actionscript developer · Jan 2004 - Jun 2004**
+**Flash / Actionscript developer · Jan 2004 - Jun 2006**
 
 Developed award-winning full-Flash websites using ActionScript 2.0.
 

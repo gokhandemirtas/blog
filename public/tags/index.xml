@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Tags on latent_shift</title>
-		<link>http://localhost:1313/tags/</link>
+		<link>http://localhost:1313/blog/tags/</link>
 		<description>Recent content in Tags on latent_shift</description>
 		<generator>Hugo</generator>
 		<language>en-gb</language>
@@ -12,166 +12,166 @@
 		
 			<lastBuildDate>Sat, 24 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/blog/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Lm-Studio</title>
-				<link>http://localhost:1313/tags/lm-studio/</link>
+				<link>http://localhost:1313/blog/tags/lm-studio/</link>
 				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/lm-studio/</guid>
+				<guid>http://localhost:1313/blog/tags/lm-studio/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Local-Ai</title>
-				<link>http://localhost:1313/tags/local-ai/</link>
+				<link>http://localhost:1313/blog/tags/local-ai/</link>
 				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/local-ai/</guid>
+				<guid>http://localhost:1313/blog/tags/local-ai/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Newsletters</title>
-				<link>http://localhost:1313/tags/newsletters/</link>
+				<link>http://localhost:1313/blog/tags/newsletters/</link>
 				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/newsletters/</guid>
+				<guid>http://localhost:1313/blog/tags/newsletters/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Ollama</title>
-				<link>http://localhost:1313/tags/ollama/</link>
+				<link>http://localhost:1313/blog/tags/ollama/</link>
 				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/ollama/</guid>
+				<guid>http://localhost:1313/blog/tags/ollama/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Pydantic-Ai</title>
-				<link>http://localhost:1313/tags/pydantic-ai/</link>
+				<link>http://localhost:1313/blog/tags/pydantic-ai/</link>
 				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/pydantic-ai/</guid>
+				<guid>http://localhost:1313/blog/tags/pydantic-ai/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Python</title>
-				<link>http://localhost:1313/tags/python/</link>
+				<link>http://localhost:1313/blog/tags/python/</link>
 				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/python/</guid>
+				<guid>http://localhost:1313/blog/tags/python/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Resend</title>
-				<link>http://localhost:1313/tags/resend/</link>
+				<link>http://localhost:1313/blog/tags/resend/</link>
 				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/resend/</guid>
+				<guid>http://localhost:1313/blog/tags/resend/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Sqlite</title>
-				<link>http://localhost:1313/tags/sqlite/</link>
+				<link>http://localhost:1313/blog/tags/sqlite/</link>
 				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/sqlite/</guid>
+				<guid>http://localhost:1313/blog/tags/sqlite/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Textual</title>
-				<link>http://localhost:1313/tags/textual/</link>
+				<link>http://localhost:1313/blog/tags/textual/</link>
 				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/textual/</guid>
+				<guid>http://localhost:1313/blog/tags/textual/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Vibe-Coding</title>
-				<link>http://localhost:1313/tags/vibe-coding/</link>
+				<link>http://localhost:1313/blog/tags/vibe-coding/</link>
 				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/vibe-coding/</guid>
+				<guid>http://localhost:1313/blog/tags/vibe-coding/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Codex</title>
-				<link>http://localhost:1313/tags/codex/</link>
+				<link>http://localhost:1313/blog/tags/codex/</link>
 				<pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/codex/</guid>
+				<guid>http://localhost:1313/blog/tags/codex/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Google-Stitch</title>
-				<link>http://localhost:1313/tags/google-stitch/</link>
+				<link>http://localhost:1313/blog/tags/google-stitch/</link>
 				<pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/google-stitch/</guid>
+				<guid>http://localhost:1313/blog/tags/google-stitch/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Hugo</title>
-				<link>http://localhost:1313/tags/hugo/</link>
+				<link>http://localhost:1313/blog/tags/hugo/</link>
 				<pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/hugo/</guid>
+				<guid>http://localhost:1313/blog/tags/hugo/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Mcp</title>
-				<link>http://localhost:1313/tags/mcp/</link>
+				<link>http://localhost:1313/blog/tags/mcp/</link>
 				<pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/mcp/</guid>
+				<guid>http://localhost:1313/blog/tags/mcp/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Computer-Vision</title>
-				<link>http://localhost:1313/tags/computer-vision/</link>
+				<link>http://localhost:1313/blog/tags/computer-vision/</link>
 				<pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/computer-vision/</guid>
+				<guid>http://localhost:1313/blog/tags/computer-vision/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Machine-Learning</title>
-				<link>http://localhost:1313/tags/machine-learning/</link>
+				<link>http://localhost:1313/blog/tags/machine-learning/</link>
 				<pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/machine-learning/</guid>
+				<guid>http://localhost:1313/blog/tags/machine-learning/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Nanovlm</title>
-				<link>http://localhost:1313/tags/nanovlm/</link>
+				<link>http://localhost:1313/blog/tags/nanovlm/</link>
 				<pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/nanovlm/</guid>
+				<guid>http://localhost:1313/blog/tags/nanovlm/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Pytorch</title>
-				<link>http://localhost:1313/tags/pytorch/</link>
+				<link>http://localhost:1313/blog/tags/pytorch/</link>
 				<pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/pytorch/</guid>
+				<guid>http://localhost:1313/blog/tags/pytorch/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Vision-Language-Models</title>
-				<link>http://localhost:1313/tags/vision-language-models/</link>
+				<link>http://localhost:1313/blog/tags/vision-language-models/</link>
 				<pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/vision-language-models/</guid>
+				<guid>http://localhost:1313/blog/tags/vision-language-models/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Metadata</title>
-				<link>http://localhost:1313/tags/metadata/</link>
+				<link>http://localhost:1313/blog/tags/metadata/</link>
 				<pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/metadata/</guid>
+				<guid>http://localhost:1313/blog/tags/metadata/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Photo-Management</title>
-				<link>http://localhost:1313/tags/photo-management/</link>
+				<link>http://localhost:1313/blog/tags/photo-management/</link>
 				<pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/photo-management/</guid>
+				<guid>http://localhost:1313/blog/tags/photo-management/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Llms</title>
-				<link>http://localhost:1313/tags/llms/</link>
+				<link>http://localhost:1313/blog/tags/llms/</link>
 				<pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/llms/</guid>
+				<guid>http://localhost:1313/blog/tags/llms/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Personal-Assistant</title>
-				<link>http://localhost:1313/tags/personal-assistant/</link>
+				<link>http://localhost:1313/blog/tags/personal-assistant/</link>
 				<pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/personal-assistant/</guid>
+				<guid>http://localhost:1313/blog/tags/personal-assistant/</guid>
 				<description></description>
 			</item>
 	</channel>

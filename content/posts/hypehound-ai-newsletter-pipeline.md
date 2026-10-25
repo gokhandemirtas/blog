@@ -8,9 +8,9 @@ draft: false
 
 {{< repository-link url="https://github.com/gokhandemirtas/jeanclawd-hypehound" name="HypeHound" description="Browse the source code and documentation." >}}
 
-{{< audio-player src="/audio/2026-10-25.m4a" title="13 min — single-call (16% item coverage)" >}}
+{{< audio-player src="https://github.com/gokhandemirtas/blog/releases/download/audio-assets/2026-10-25.m4a" title="13 min — single-call (16% item coverage)" >}}
 
-{{< audio-player src="/audio/longer.m4a" title="2 hr 14 min — per-category (100% item coverage)" >}}
+{{< audio-player src="https://github.com/gokhandemirtas/blog/releases/download/audio-assets/longer.m4a" title="2 hr 14 min — per-category (100% item coverage)" >}}
 
 I subscribe to a lot of newsletters. TLDR, The Pragmatic Engineer, Bytes, a handful of security digests. By the time I sit down in the morning, my inbox looks like someone tipped a recycling bin on a keyboard. I read maybe a third of it, skim another third, and quietly ignore the rest.
 

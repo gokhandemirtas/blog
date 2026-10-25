@@ -3,7 +3,7 @@ title: "HypeHound: an AI newsletter pipeline"
 description: "Building a local AI pipeline that ingests newsletters, classifies and summarises them, and turns the result into a digest and a podcast"
 date: 2026-10-24
 tags: [newsletters, local-ai, pydantic-ai, python, lm-studio, ollama, textual, sqlite, resend, vibe-coding]
-draft: true
+draft: false
 ---
 
 {{< repository-link url="https://github.com/gokhandemirtas/jeanclawd-hypehound" name="HypeHound" description="Browse the source code and documentation." >}}

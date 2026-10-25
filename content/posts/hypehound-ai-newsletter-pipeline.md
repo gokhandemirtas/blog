@@ -19,24 +19,53 @@ promotional boilerplate, tracking redirects, and copy-paste filler. I wanted som
 quietly sit in the background, strip the noise, group related items, and hand me a clean summary
 when I am ready. That is HypeHound.
 
+## At a glance
+
+**What:** A local-first pipeline that turns newsletter email into structured, cited digests and narrated audio — fully automated, no cloud AI required.
+
+**Stack:** Python · PydanticAI · pydantic-graph · SQLite · Resend · LM Studio / Ollama · Textual · Qwen3-TTS
+
+**Key engineering decisions:**
+- Chunk newsletters at section boundaries before classification — one LLM call per chunk, not one per newsletter
+- Constrain citations to URLs that actually existed in the source email — the model cannot hallucinate a link
+- Validate every LLM output against a Pydantic schema with automatic retries
+- Key ingestion on `Message-ID` — idempotent and crash-safe by design
+- Route classification and digest to separate inference workloads to fit local hardware memory
+- One LLM call per digest *category* rather than one per full digest — coverage goes from ~16% to ~100%
+
+Across 18 newsletters processed so far, the pipeline reduces 282,402 characters of raw newsletter text to 37,715 characters of structured summaries — **7.5× compression** — before the digest step runs. Early sample; the ratio is expected to hold.
+
 ## The problem with email
 
 Email is a poor substrate for structured data — every sender uses a different template, subject
 lines are not reliable identifiers, and tracking links expire the moment a campaign ends. That
-awkwardness shapes almost every decision in the pipeline. The two hard rules that fell out of it:
-**resolve tracking URLs at ingest time**, before they redirect to a dead campaign page; and use
+awkwardness shapes almost every decision in the pipeline. The hard rule that fell out of it: use
 the `Message-ID` header as the deduplication key, since it is the only one email standards require
-to be globally unique.
+to be globally unique. Everything else — including how to handle tracking URLs — turned out to
+need more thought, as described later.
 
 ## The pipeline
 
 ```
-Resend mailbox (cron poll)
-  → ingest    fetch from Resend SDK; dedup by Message-ID; archive after processing
-  → parse     HTML → plain text (bs4 + markdownify); resolve tracking URLs
-  → classify  PydanticAI structured output; extract items with category, headline, summary, citations
-  → digest    group by category; LLM-written prose summary per category
-  → podcast   narrated script for TTS (5–8 minutes)
+ Resend mailbox
+       │  cron poll
+       ▼
+    Ingest ──── dedup by Message-ID ──── SQLite (emails)
+       │
+       ▼
+     Parse ──── HTML → text, extract URLs
+       │
+       ▼
+  Classify ──── PydanticAI + schema validation ──── SQLite (items)
+       │         one call per ~600-word chunk
+       ▼
+    Digest ──── group by category, LLM prose ──── SQLite (digests)
+       │         one call per category
+       ▼
+   Podcast ──── script → Voicebox TTS → M4A
+       │
+       ▼
+  Delivery ──── Telegram / email  (planned)
 ```
 
 Resend acts as the managed inbox. Newsletters are forwarded there, and I poll via their API.
@@ -61,7 +90,7 @@ output against the schema so I always get back a proper list of `NewsletterItem`
 error I can handle.
 
 Each item has a category, a one-line headline, a two or three sentence summary, and a list of
-citations. Citations are only populated from the resolved URL map I built at ingest time, so the
+citations. Citations are only populated from the URL map extracted from the original email, so the
 model cannot hallucinate a URL — it can only reference one that actually existed in the email.
 After chunking there is a deduplication pass by headline, because a long newsletter sometimes
 repeats items across adjacent sections.
@@ -382,16 +411,18 @@ The delivery layer — Telegram bot, email sender, audio attachment — is next 
 
 ## What I have learned so far
 
-The URL resolution lesson took two attempts. My first version did not resolve tracking URLs at
-all, and when I audited items from a few days prior, a meaningful fraction of the citation links
-were dead. So I added eager resolution at ingest time — following every redirect before storing.
-That fixed the dead-link problem but introduced a new one: resolving 40 tracking URLs per
-newsletter, each with a 5-second timeout, made ingest appear frozen for minutes at a time.
+**Tracking URL resolution is a trade-off, not a solved problem.** My first version stored URLs
+as-is, and when I audited items from a few days prior, a meaningful fraction of the citation links
+were dead — tracking redirects that had expired. So I added eager resolution at ingest time,
+following every redirect before storing. That fixed the dead-link problem but introduced a new one:
+resolving 40 URLs per newsletter, each with a 5-second timeout, made ingest appear frozen for
+minutes at a time.
 
-The second version dropped resolution entirely. Tracking URLs stay as-is in the database and are
-passed to the LLM as citations. If a user wants to follow a link they click it; the redirect
-happens in their browser, where it always worked fine anyway. The pipeline stops trying to do
-something that is better left to the client.
+The current version drops resolution entirely. Tracking URLs stay as-is in the database and are
+passed through as citations. The trade-off is deliberate: a user following a link in the digest
+triggers the redirect in their browser, where it generally still works. The pipeline stops trying to
+do something that is better left to the client — but this is a known limitation, and a smarter
+approach (async background resolution, caching) is on the list.
 
 The other lesson is about structured output and trust. PydanticAI's retry mechanism means I
 almost never get a malformed response, but it also means I can look at every item's citations

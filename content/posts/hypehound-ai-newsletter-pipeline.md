@@ -349,27 +349,18 @@ in practice. But it is a real constraint if you wanted near-real-time processing
 The pipeline has two structurally different workloads, and they need different things from the
 inference layer.
 
-**Classification is parallel.** Each newsletter item is independent — classifying
-item 12 does not depend on the result of item 3. A fast 7B or 14B model is good enough for this
-task, and the ideal setup is several requests in flight simultaneously. LM Studio processes
-requests serially; it has no concurrency support. Spawning multiple classification workers against
-it does nothing — they just queue. Ollama exposes `OLLAMA_NUM_PARALLEL`, which tells the server
-how many requests to process simultaneously on the same loaded model. On a machine with 32 GB of
-free unified memory, setting this to 3 is comfortable. That is the unlock for parallel
-classification.
+**Classification is parallel.** Each item is independent, so the ideal setup is several requests
+in flight simultaneously. LM Studio processes requests serially and queues the rest. Ollama's
+`OLLAMA_NUM_PARALLEL` setting allows concurrent requests on the same loaded model — on a 64 GB
+unified memory machine, setting this to 4 or 5 with a 14B model is comfortable.
 
-**Digest requires coherence.** Once classification is done, the digest step needs to see all
-extracted items at once and write something that reads as a single consistent document — consistent
-voice, no repeated stories, transitions that make sense across categories. Parallelising this would
-produce fragments. The right tool here is a single large-context model — a 32B or 70B with a wide
-context window — running one pass over the full item set. This cannot and should not run
-concurrently.
+**Digest requires coherence.** The digest step needs to see all extracted items at once and produce
+a consistent document — same voice, no repeated stories. The right tool is a single large-context
+model (32B–70B) running one sequential pass. Parallelising it would produce fragments.
 
-The transition that follows from this is: move classification to Ollama with `NUM_PARALLEL=3`,
-and reserve the large-context model in LM Studio for the digest phase. The two phases do not
-overlap, so they are not competing for memory. Classification workers drain first and commit
-everything to SQLite, then the digest model loads and runs a single coherent pass. The pipeline
-already sequences these as separate graph runs, so the handoff is clean.
+The split is clean because the two phases do not overlap: classification workers drain and commit
+everything to SQLite first, then the digest model loads for a single pass. The pipeline already
+sequences these as separate graph runs, so no coordination is needed.
 
 ## State management
 

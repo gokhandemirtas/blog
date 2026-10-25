@@ -5,7 +5,7 @@
 
 <div class="photo-gallery">
   {{- range $i, $src := $images -}}
-  {{- $src = trim $src " " -}}
+  {{- $src = trim $src " " | strings.TrimPrefix "/" -}}
   {{- $caption := index $captions $i | default "" | trim " " -}}
   <a class="photo-gallery-item"
      href="{{ $src | absURL }}"

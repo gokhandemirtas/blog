@@ -8,10 +8,10 @@
   {{- $src = trim $src " " -}}
   {{- $caption := index $captions $i | default "" | trim " " -}}
   <a class="photo-gallery-item"
-     href="{{ $src | relURL }}"
+     href="{{ $src | absURL }}"
      data-glightbox
      {{- with $caption }} data-description="{{ . }}"{{ end }}>
-    <img src="{{ $src | relURL }}" loading="lazy" alt="{{ $caption }}">
+    <img src="{{ $src | absURL }}" loading="lazy" alt="{{ $caption }}">
     {{- with $caption }}<span class="photo-gallery-caption">{{ . }}</span>{{ end -}}
   </a>
   {{- end }}

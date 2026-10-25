@@ -23,7 +23,7 @@ when I am ready. That is HypeHound.
 
 **What:** A local-first pipeline that turns newsletter email into structured, cited digests and narrated audio — fully automated, no cloud AI required.
 
-**Stack:** Python · PydanticAI · pydantic-graph · SQLite · Resend · LM Studio / Ollama · Textual · Qwen3-TTS
+**Stack:** Python · PydanticAI · pydantic-graph · SQLite · Resend · LM Studio / Ollama · Qwen3-TTS
 
 **Key engineering decisions:**
 - Chunk newsletters at section boundaries before classification — one LLM call per chunk, not one per newsletter
@@ -97,8 +97,8 @@ repeats items across adjacent sections.
 
 ## Digests
 
-The digest is time-based, not threshold-based. A cron job fires the digest pipeline daily,
-and it pulls every classified item that has not been included in a previous digest. Items are
+The digest is time-based, not threshold-based. The plan is a cron job firing the pipeline daily;
+it pulls every classified item that has not been included in a previous digest. Items are
 grouped by category, and for each category the LLM writes a brief intro sentence plus a clean
 list of items. The category prose and all citation URLs are carried through to the output.
 

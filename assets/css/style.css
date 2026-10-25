@@ -1026,6 +1026,226 @@ a {
   }
 }
 
+/* --- Gallery --------------------------------------------------------------- */
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+
+.photo-gallery-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  aspect-ratio: 4 / 3;
+}
+
+.photo-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.photo-gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+.photo-gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.photo-gallery-item:hover .photo-gallery-caption {
+  opacity: 1;
+}
+
+/* --- Audio player ---------------------------------------------------------- */
+
+.audio-player {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  box-shadow: var(--shadow);
+}
+
+.audio-player-header {
+  margin-bottom: 0.85rem;
+}
+
+.audio-player-header .eyebrow {
+  margin: 0 0 0.2rem;
+}
+
+.audio-player-header strong {
+  font-size: 1rem;
+}
+
+.audio-player-control {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.audio-player-caption {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ── markdown-viewer ──────────────────────────────── */
+.markdown-viewer {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  background: color-mix(in srgb, var(--surface) 76%, transparent);
+  box-shadow: var(--shadow);
+  margin: 2rem 0;
+}
+
+.markdown-viewer-summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.markdown-viewer-summary::-webkit-details-marker { display: none; }
+
+.markdown-viewer-meta {
+  flex: 1;
+}
+
+.markdown-viewer-meta .eyebrow {
+  margin: 0 0 .2rem;
+}
+
+.markdown-viewer-meta > strong {
+  display: block;
+  color: var(--ink);
+}
+
+.markdown-viewer-toggle {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.markdown-viewer-chevron {
+  display: block;
+  transition: transform .2s ease;
+}
+
+.markdown-viewer[open] .markdown-viewer-chevron {
+  transform: rotate(180deg);
+}
+
+.markdown-viewer-body {
+  border-top: 1px solid var(--line);
+  padding: 1.25rem 1.5rem 1.5rem;
+  overflow-x: auto;
+}
+
+.markdown-viewer-body h1,
+.markdown-viewer-body h2,
+.markdown-viewer-body h3,
+.markdown-viewer-body h4 {
+  margin-top: 1.25rem;
+}
+
+.markdown-viewer-body h1:first-child,
+.markdown-viewer-body h2:first-child {
+  margin-top: 0;
+}
+
+.markdown-viewer-caption {
+  margin: 0;
+  padding: .6rem 1.2rem .8rem;
+  font-size: .85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+/* ── json-viewer ──────────────────────────────────── */
+.json-viewer {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  background: color-mix(in srgb, var(--surface) 76%, transparent);
+  box-shadow: var(--shadow);
+  margin: 2rem 0;
+}
+
+.json-viewer-summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.json-viewer-summary::-webkit-details-marker { display: none; }
+
+.json-viewer-meta {
+  flex: 1;
+}
+
+.json-viewer-meta .eyebrow {
+  margin: 0 0 .2rem;
+}
+
+.json-viewer-meta > strong {
+  display: block;
+  color: var(--ink);
+}
+
+.json-viewer-toggle {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.json-viewer-chevron {
+  display: block;
+  transition: transform .2s ease;
+}
+
+.json-viewer[open] .json-viewer-chevron {
+  transform: rotate(180deg);
+}
+
+.json-viewer-body {
+  border-top: 1px solid var(--line);
+}
+
+.json-viewer-monaco {
+  width: 100%;
+  min-height: 80px;
+}
+
+.json-viewer-caption {
+  margin: 0;
+  padding: .6rem 1.2rem .8rem;
+  font-size: .85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
 @media (max-width: 560px) {
   .container {
     width: calc(100% - 2rem);

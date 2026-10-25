@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" data-theme="light">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Me · latent_shift</title>
@@ -14,7 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   
-  <link rel="stylesheet" href="/css/style.min.dbf614aebe9face086ebcb71d65bd5df7eaa825c8688abc011b14d251a017d66.css">
+  <link rel="stylesheet" href="/css/style.min.1ec0db1f24498280564c5a03f023f52a2628f275e2ac711ad80104810df14e9a.css">
   <script>
     (() => {
       const saved = localStorage.getItem('ledger-theme');
@@ -97,12 +97,20 @@
         <span>STATUS: <b class="live">ARCHIVED</b></span>
       </div>
     </header>
-    <div class="post-content"><h2 id="railpen">Railpen</h2>
-<p><strong>Frontend developer · Oct 2021 - Mar 2026</strong></p>
-<p>SME responsible for all front-office web applications, establishing UI/UX and frontend coding standards through a reusable theme, a shared Angular library, Azure Marketplace and VS Code extensions, and shared linting and formatting configuration.</p>
-<p>Notable projects included an IBOR app with real-time portfolio data and trade-order capabilities, Risk Management, Rebalance, and Data Quality frameworks. I was also involved in company-wide adoption of Microsoft Foundry and AI-powered solutions.</p>
+    <div class="post-content"><p>I&rsquo;m an AI-focused full-stack engineer with over 25 years of commercial experience building products for small and large organisations in multinational teams. I write about AI engineering experiments at this blog — everything here is hands-on work, not theory.</p>
+<h2 id="independent-projects">Independent projects</h2>
+<h3 id="jeanclawd">JeanClawd</h3>
+<p>A fully local AI assistant built from scratch on personal hardware (M1 Mac Studio 64 GB + Ubuntu PC with RTX 3090). Features multi-model orchestration (Qwen3 30B A3B generalist, Llama 3.1 8B intent router, Qwen3-VL 4B vision), a three-layer memory system (LangMem + MongoDB semantic search), MCP server, voice I/O (Whisper STT + Supertonic TTS), ReAct research agents, and smart home, finance, and news connectors. Built with Python, LangChain, LangGraph, LangMem, Pydantic, Ollama, llama.cpp, MLX.</p>
+<h3 id="schmarchive">Schmarchive</h3>
+<p>A CLI photo archive organiser using a local VLM for image classification and near-duplicate evaluation, perceptual hashing, EXIF/GPS metadata extraction, and Nominatim reverse geocoding. Non-destructive deduplication workflow. Built with Python.</p>
+<h3 id="detectrode">Detectrode</h3>
+<p>Industrial product recognition via small vision model fine-tuning. Fine-tuned a VLM on domain-specific imagery for accurate product detection in an industrial context. Built with nanoVLM and PyTorch.</p>
+<h2 id="railpen">Railpen</h2>
+<p><strong>Frontend developer · Oct 2021 - Present</strong></p>
+<p>Primary engineer on an AI-augmented SDLC initiative (50% of role): built agents that actively scan ADO pipelines to validate Jira/PR/GitFlow adherence, surface stale repositories, detect vulnerabilities, and check code against Confluence standards. Agents run locally connecting to ADO, Jira, and Confluence, with automated pipeline trigger deployment in progress. Stack: Microsoft Foundry (Azure-hosted LLMs with custom system prompts), Copilot CLI.</p>
+<p>Also SME for all front-office web applications, establishing UI/UX and frontend coding standards through a reusable theme, a shared Angular library, Azure Marketplace and VS Code extensions, and shared linting and formatting configuration. Notable projects: IBOR app with real-time portfolio data and trade-order capabilities; Risk Management, Rebalance, and Data Quality frameworks.</p>
 <h2 id="lexisnexis--eg">LexisNexis / EG</h2>
-<p><strong>Full-stack developer · Jun 2019 - Jul 2021</strong></p>
+<p><strong>Full-stack developer · Jun 2019 - Oct 2021</strong></p>
 <p>Worked on a commercial property valuation UI with rich formatting, document uploads, side-by-side comparisons, commenting, and market-data integration for report generation in Word and PDF. The product helped surveyors automate workflows that previously took months.</p>
 <p>Developed TinyMCE plugins, contributed to the Node/Hapi backend, and built processes around AWS SQS. I was also involved with Auth0 authentication and a custom authorisation suite.</p>
 <h2 id="fidelity-international">Fidelity International</h2>
@@ -148,7 +156,7 @@
 <p><strong>Frontend developer · Dec 2013</strong></p>
 <p>Completed a two-week assignment fixing cross-browser and responsive-layout bugs on englishfirst.com, built on Adobe CQ5.</p>
 <h2 id="digital-propulsion">Digital Propulsion</h2>
-<p><strong>Director · Sep 2013 - 2020</strong></p>
+<p><strong>Director · Sep 2013 - Jan 2020</strong></p>
 <p>Moved from Dubai to set up my own company, where I delivered numerous short- and long-term projects as a contractor until 2020, as well as managed a small development team for one of my customers.</p>
 <h2 id="nabbeshcom">Nabbesh.com</h2>
 <p><strong>Frontend developer · Jan 2013 - Jun 2013</strong></p>
@@ -172,7 +180,7 @@
 <p><strong>Frontend developer · Jun 2006 - Dec 2007</strong></p>
 <p>Worked as a remote contract frontend developer for FTI&rsquo;s clients, including New York-based RichFX, Register.com, and Nashville-based Zoitec. Focused on JavaScript and Flash.</p>
 <h2 id="mana-digital">Mana Digital</h2>
-<p><strong>Flash / Actionscript developer · Jan 2004 - Jun 2004</strong></p>
+<p><strong>Flash / Actionscript developer · Jan 2004 - Jun 2006</strong></p>
 <p>Developed award-winning full-Flash websites using ActionScript 2.0.</p>
 <h2 id="marjinal-porter-novelli">Marjinal Porter Novelli</h2>
 <p><strong>Frontend developer · Apr 2002 - Jan 2004</strong></p>
@@ -186,6 +194,13 @@
     <div class="toc">
       <p class="eyebrow">IN THIS ARTICLE</p><nav id="TableOfContents">
   <ul>
+    <li><a href="#independent-projects">Independent projects</a>
+      <ul>
+        <li><a href="#jeanclawd">JeanClawd</a></li>
+        <li><a href="#schmarchive">Schmarchive</a></li>
+        <li><a href="#detectrode">Detectrode</a></li>
+      </ul>
+    </li>
     <li><a href="#railpen">Railpen</a></li>
     <li><a href="#lexisnexis--eg">LexisNexis / EG</a></li>
     <li><a href="#fidelity-international">Fidelity International</a></li>

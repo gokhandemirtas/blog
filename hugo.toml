@@ -5,9 +5,16 @@ title = 'latent_shift'
 [languages.en]
   locale = 'en-gb'
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [params]
   description = 'Engineering notes, experimentation, and useful rabbit holes.'
   author = 'Gokhan Demirtas'
+
+[mediaTypes]
+  ["audio/mp4"]
+    suffixes = ["m4a"]
 
 [caches]
   [caches.images]

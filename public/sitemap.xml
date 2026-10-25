@@ -2,101 +2,101 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:64368/blog/posts/</loc>
+    <loc>http://localhost:49335/blog/posts/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/</loc>
+    <loc>http://localhost:49335/blog/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/posts/hypehound-ai-newsletter-pipeline/</loc>
+    <loc>http://localhost:49335/blog/posts/hypehound-ai-newsletter-pipeline/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/lm-studio/</loc>
+    <loc>http://localhost:49335/blog/tags/lm-studio/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/local-ai/</loc>
+    <loc>http://localhost:49335/blog/tags/local-ai/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/newsletters/</loc>
+    <loc>http://localhost:49335/blog/tags/newsletters/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/ollama/</loc>
+    <loc>http://localhost:49335/blog/tags/ollama/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/pydantic-ai/</loc>
+    <loc>http://localhost:49335/blog/tags/pydantic-ai/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/python/</loc>
+    <loc>http://localhost:49335/blog/tags/python/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/resend/</loc>
+    <loc>http://localhost:49335/blog/tags/resend/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/sqlite/</loc>
+    <loc>http://localhost:49335/blog/tags/sqlite/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/</loc>
+    <loc>http://localhost:49335/blog/tags/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/textual/</loc>
+    <loc>http://localhost:49335/blog/tags/textual/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/vibe-coding/</loc>
+    <loc>http://localhost:49335/blog/tags/vibe-coding/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/codex/</loc>
+    <loc>http://localhost:49335/blog/tags/codex/</loc>
     <lastmod>2026-08-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/posts/stitch-codex/</loc>
+    <loc>http://localhost:49335/blog/posts/stitch-codex/</loc>
     <lastmod>2026-08-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/google-stitch/</loc>
+    <loc>http://localhost:49335/blog/tags/google-stitch/</loc>
     <lastmod>2026-08-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/hugo/</loc>
+    <loc>http://localhost:49335/blog/tags/hugo/</loc>
     <lastmod>2026-08-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/mcp/</loc>
+    <loc>http://localhost:49335/blog/tags/mcp/</loc>
     <lastmod>2026-08-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/computer-vision/</loc>
+    <loc>http://localhost:49335/blog/tags/computer-vision/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/posts/detectrode-training-a-vlm/</loc>
+    <loc>http://localhost:49335/blog/posts/detectrode-training-a-vlm/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/machine-learning/</loc>
+    <loc>http://localhost:49335/blog/tags/machine-learning/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/nanovlm/</loc>
+    <loc>http://localhost:49335/blog/tags/nanovlm/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/pytorch/</loc>
+    <loc>http://localhost:49335/blog/tags/pytorch/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/vision-language-models/</loc>
+    <loc>http://localhost:49335/blog/tags/vision-language-models/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/metadata/</loc>
+    <loc>http://localhost:49335/blog/tags/metadata/</loc>
     <lastmod>2026-07-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/photo-management/</loc>
+    <loc>http://localhost:49335/blog/tags/photo-management/</loc>
     <lastmod>2026-07-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/posts/schmarchive/</loc>
+    <loc>http://localhost:49335/blog/posts/schmarchive/</loc>
     <lastmod>2026-07-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/posts/jeanclawd-building-a-local-ai-assistant/</loc>
+    <loc>http://localhost:49335/blog/posts/jeanclawd-building-a-local-ai-assistant/</loc>
     <lastmod>2026-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/llms/</loc>
+    <loc>http://localhost:49335/blog/tags/llms/</loc>
     <lastmod>2026-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/tags/personal-assistant/</loc>
+    <loc>http://localhost:49335/blog/tags/personal-assistant/</loc>
     <lastmod>2026-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:64368/blog/about/</loc>
+    <loc>http://localhost:49335/blog/about/</loc>
   </url><url>
-    <loc>http://localhost:64368/blog/categories/</loc>
+    <loc>http://localhost:49335/blog/categories/</loc>
   </url>
 </urlset>

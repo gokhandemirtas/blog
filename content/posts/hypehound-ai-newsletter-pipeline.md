@@ -76,6 +76,24 @@ For parsing, `markdownify` converts HTML to text in a way that preserves the str
 newsletter without dragging along the CSS and tracking pixels. BeautifulSoup handles URL
 extraction beforehand so I can do the redirect resolution pass separately.
 
+## State management
+
+The pipeline is built on pydantic-graph's `GraphBuilder`. Each stage — `Fetch`, `Pick`, `Save`,
+`Classify`, `Store`, `BuildDigest` — is a `BaseNode` subclass, and each node's `run` method
+returns the next node to visit, or `End` to terminate. `GraphBuilder` compiles these into a typed,
+validated graph at startup. Execution order is not a hardcoded list; it emerges from what each
+node returns at runtime. If `Fetch` finds no new emails, it returns `End` immediately and the
+remaining ingest nodes are never touched.
+
+All mutable data shared across nodes travels in a single `PipelineState` Pydantic model that the
+graph threads through every call. Because it is Pydantic, the state is validated on construction
+and straightforward to inspect or serialise mid-run.
+
+SQLite sits underneath for anything that needs to survive between runs: the raw ingestion log,
+classified items, and generated digests. The `emails` table is append-only, keyed on `message_id`,
+so a crash mid-pipeline leaves no inconsistency — the next run skips what is already there and
+picks up the rest.
+
 ## Classification
 
 This is where it gets interesting. A single newsletter issue from TLDR might have fifteen or twenty
@@ -361,24 +379,6 @@ model (32B–70B) running one sequential pass. Parallelising it would produce fr
 The split is clean because the two phases do not overlap: classification workers drain and commit
 everything to SQLite first, then the digest model loads for a single pass. The pipeline already
 sequences these as separate graph runs, so no coordination is needed.
-
-## State management
-
-The pipeline is built on pydantic-graph's `GraphBuilder`. Each stage — `Fetch`, `Pick`, `Save`,
-`Classify`, `Store`, `BuildDigest` — is a `BaseNode` subclass, and each node's `run` method
-returns the next node to visit, or `End` to terminate. `GraphBuilder` compiles these into a typed,
-validated graph at startup. Execution order is not a hardcoded list; it emerges from what each
-node returns at runtime. If `Fetch` finds no new emails, it returns `End` immediately and the
-remaining ingest nodes are never touched.
-
-All mutable data shared across nodes travels in a single `PipelineState` Pydantic model that the
-graph threads through every call. Because it is Pydantic, the state is validated on construction
-and straightforward to inspect or serialise mid-run.
-
-SQLite sits underneath for anything that needs to survive between runs: the raw ingestion log,
-classified items, and generated digests. The `emails` table is append-only, keyed on `message_id`,
-so a crash mid-pipeline leaves no inconsistency — the next run skips what is already there and
-picks up the rest.
 
 ## The TUI
 

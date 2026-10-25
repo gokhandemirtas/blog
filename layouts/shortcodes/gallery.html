@@ -1,0 +1,21 @@
+{{- $images := split (.Get "images") "," -}}
+{{- $captions := split ((.Get "captions") | default "") "," -}}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3/dist/css/glightbox.min.css">
+
+<div class="photo-gallery">
+  {{- range $i, $src := $images -}}
+  {{- $src = trim $src " " -}}
+  {{- $caption := index $captions $i | default "" | trim " " -}}
+  <a class="photo-gallery-item"
+     href="{{ $src | relURL }}"
+     data-glightbox
+     {{- with $caption }} data-description="{{ . }}"{{ end }}>
+    <img src="{{ $src | relURL }}" loading="lazy" alt="{{ $caption }}">
+    {{- with $caption }}<span class="photo-gallery-caption">{{ . }}</span>{{ end -}}
+  </a>
+  {{- end }}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox@3/dist/js/glightbox.min.js"></script>
+<script>GLightbox({ selector: '.photo-gallery-item' });</script>

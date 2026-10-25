@@ -1,0 +1,20 @@
+{{- $title := .Get "title" | default "Markdown" -}}
+{{- $caption := .Get "caption" -}}
+
+<details class="markdown-viewer">
+  <summary class="markdown-viewer-summary">
+    <div class="markdown-viewer-meta">
+      <p class="eyebrow">MARKDOWN</p>
+      <strong>{{ $title }}</strong>
+    </div>
+    <span class="markdown-viewer-toggle" aria-hidden="true">
+      <svg class="markdown-viewer-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </span>
+  </summary>
+  <div class="markdown-viewer-body post-content">
+    {{ .Inner | markdownify }}
+  </div>
+  {{- with $caption }}<p class="markdown-viewer-caption">{{ . }}</p>{{ end -}}
+</details>

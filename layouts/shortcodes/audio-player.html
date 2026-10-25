@@ -1,0 +1,20 @@
+{{- $src := .Get "src" -}}
+{{- $title := .Get "title" | default "Audio" -}}
+{{- $caption := .Get "caption" -}}
+{{- $ext := path.Ext $src -}}
+{{- $type := "audio/mpeg" -}}
+{{- if eq $ext ".m4a" }}{{- $type = "audio/mp4" -}}{{- end -}}
+{{- if eq $ext ".ogg" }}{{- $type = "audio/ogg" -}}{{- end -}}
+{{- if eq $ext ".wav" }}{{- $type = "audio/wav" -}}{{- end -}}
+
+<div class="audio-player">
+  <div class="audio-player-header">
+    <p class="eyebrow">AUDIO</p>
+    <strong>{{ $title }}</strong>
+  </div>
+  <audio class="audio-player-control" controls preload="metadata">
+    <source src="{{ $src | relURL }}" type="{{ $type }}">
+    Your browser does not support the audio element.
+  </audio>
+  {{- with $caption }}<p class="audio-player-caption">{{ . }}</p>{{ end -}}
+</div>

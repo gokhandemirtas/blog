@@ -1,0 +1,47 @@
+{{- $title := .Get "title" | default "JSON" -}}
+{{- $caption := .Get "caption" -}}
+{{- $id := printf "jv-%d" (now.UnixNano) -}}
+
+<details class="json-viewer" id="{{ $id }}">
+  <summary class="json-viewer-summary">
+    <div class="json-viewer-meta">
+      <p class="eyebrow">JSON</p>
+      <strong>{{ $title }}</strong>
+    </div>
+    <span class="json-viewer-toggle" aria-hidden="true">
+      <svg class="json-viewer-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </span>
+  </summary>
+  <div class="json-viewer-body">
+    <pre class="json-viewer-pre"><code id="{{ $id }}-code" class="json-viewer-code"></code></pre>
+  </div>
+  {{- with $caption }}<p class="json-viewer-caption">{{ . }}</p>{{ end -}}
+</details>
+
+<script>
+(function () {
+  {{- /* base64 is pure ASCII — Hugo's context escaper leaves it untouched */ -}}
+  var raw = atob("{{ .Inner | trim "\n" | base64Encode }}");
+  var code = document.getElementById("{{ $id }}-code");
+  if (!code || !raw) return;
+
+  try { raw = JSON.stringify(JSON.parse(raw), null, 2); } catch (e) {}
+
+  function esc(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  code.innerHTML = esc(raw).replace(
+    /("(?:\\u[0-9a-fA-F]{4}|\\[^u]|[^\\"])*"(?:\s*:)?|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,
+    function (m) {
+      var cls = /^"/.test(m) ? (/:$/.test(m) ? "jv-key" : "jv-str")
+              : /true|false/.test(m) ? "jv-bool"
+              : m === "null" ? "jv-null"
+              : "jv-num";
+      return '<span class="' + cls + '">' + m + '</span>';
+    }
+  );
+})();
+</script>

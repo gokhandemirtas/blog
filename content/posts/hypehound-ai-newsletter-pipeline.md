@@ -8,6 +8,8 @@ draft: false
 
 {{< repository-link url="https://github.com/gokhandemirtas/jeanclawd-hypehound" name="HypeHound" description="Browse the source code and documentation." >}}
 
+The pipeline publishes a live episode page at **[hypehound.dev](https://www.hypehound.dev)**.
+
 {{< audio-player src="https://github.com/gokhandemirtas/blog/releases/download/audio-assets/2026-10-25.m4a" title="13 min — single-call (16% item coverage)" >}}
 
 {{< audio-player src="https://github.com/gokhandemirtas/blog/releases/download/audio-assets/longer.m4a" title="2 hr 14 min — per-category (100% item coverage)" >}}
@@ -65,7 +67,10 @@ need more thought, as described later.
    Podcast ──── script → Voicebox TTS → M4A
        │
        ▼
-  Delivery ──── Telegram / email  (planned)
+   Publish ──── episode HTML + audio → GitHub Release
+       │
+       ▼
+    Deploy ──── Astro build → Cloudflare Pages (hypehound.dev)
 ```
 
 Resend acts as the managed inbox. Newsletters are forwarded there, and I poll via their API.
@@ -398,7 +403,13 @@ wrong, not as the day-to-day interface.
 
 A CLI would have been sufficient. The TUI is a convenience — watching a pipeline run with a
 progress display is easier to follow than scrolling log lines when something goes wrong.
-The delivery layer — Telegram bot, email sender, audio attachment — is next on the list.
+
+The pipeline now has a headless publish step. Running `python main.py --run-all --tts --publish`
+goes end to end without any interactive input: ingest, digest, podcast script, TTS synthesis,
+episode HTML, and finally an Astro build and `wrangler pages deploy` to Cloudflare Pages. Audio
+goes to a GitHub Release (the file is too large for Pages); the episode page references it by URL.
+The same flow is available in the TUI as a single `w` keypress once a podcast has been generated.
+The result lands at [hypehound.dev](https://www.hypehound.dev) a few seconds after the deploy completes.
 
 ## What I have learned so far
 
